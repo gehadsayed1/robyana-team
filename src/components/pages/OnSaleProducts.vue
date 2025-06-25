@@ -3,11 +3,11 @@
    
 
     <!-- تغليف الكروت في فليكس علشان نتحكم -->
-    <div class="flex flex-wrap justify-center gap-6">
+    <div class="flex flex-wrap justify-center gap-5">
       <div
         v-for="(product, index) in products"
         :key="index"
-        class=" rounded-xl p-4 shadow-md hover:shadow-xl transition w-[300px] h-[500px] flex flex-col justify-between bg-white"
+        class=" rounded-xl p-4 shadow-md hover:shadow-xl transition w-[290px] h-[500px] flex flex-col justify-between bg-white"
       >
         <!-- الأعلى -->
         <div>

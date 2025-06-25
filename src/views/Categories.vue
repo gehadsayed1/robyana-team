@@ -9,14 +9,14 @@
     <!-- Main Content -->
     <div class="flex-1 p-3">
       <!-- Tabs -->
- <div
-  class="flex justify-between rounded-lg shadow-md m-auto bg-white w-87 p-3 mb-4 space-x-4"
->
-  <P class="text-gray-400">Men </P>
-  <P class="text-gray-800 font-semibold">Women</P>
-  <P class="text-gray-400">Kids</P>
-</div>
-      <div class="flex flex-col gap-3 items-start mb-4 px-17">
+      <div
+        class="flex justify-between rounded-lg shadow-md m-auto bg-white w-87 p-3 mb-4 space-x-4"
+      >
+        <P class="text-gray-400">Men </P>
+        <P class="text-gray-800 font-semibold">Women</P>
+        <P class="text-gray-400">Kids</P>
+      </div>
+      <div class="flex flex-col gap-3 items-start mb-4 px-8">
         <p class="text-gray-500">Showing 1-9 of 7354 result</p>
 
         <!-- Active Filters -->
