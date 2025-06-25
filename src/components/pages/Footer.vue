@@ -1,5 +1,5 @@
 <template>
-  <footer class="bg-gray-100 text-gray-800 px-6 py-6">
+  <footer class="bg-gray-50 text-gray-800 px-6 py-6">
     <div class="container mx-auto space-y-6">
 
       <!-- 🔹 Top Row: Logo + Description -->

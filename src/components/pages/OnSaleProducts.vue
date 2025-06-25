@@ -1,6 +1,6 @@
 <template>
-  <section class="container mx-auto px-4 mb-12 bg-gray-50">
-    <h2 class="text-3xl font-bold text-center mb-10">On Sale</h2>
+  <section >
+   
 
     <!-- تغليف الكروت في فليكس علشان نتحكم -->
     <div class="flex flex-wrap justify-center gap-6">

@@ -1,12 +1,13 @@
 @import "tailwindcss";
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@100..900&display=swap');
 
-body
-{
-  font-family: 'Noto Sans Arabic', sans-serif;
- 
-}
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@100..900&family=Pacifico&family=Sacramento&display=swap');
+
+
+
 
 @theme {
   --color-primary: #4A90E2;
+
+
 }
