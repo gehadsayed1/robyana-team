@@ -8,13 +8,7 @@
   @click="goToSlideLink(slide)"
 >
   <img :src="slide.image" :alt="slide.title" class="w-full h-auto object-cover" />
-  <div class="absolute inset-0 flex items-center justify-center text-white text-center">
-    <div>
-      <p class="text-lg md:text-xl font-light mb-2">{{ slide.subtitle }}</p>
-      <h1 class="text-2xl md:text-4xl font-bold mb-2">{{ slide.title }}</h1>
-      <p class="text-sm md:text-base font-light">{{ slide.tags }}</p>
-    </div>
-  </div>
+ 
 </div>
 
     </div>
@@ -74,6 +68,7 @@ onMounted(() => {
   width: 100%;
   height: 500px;
   overflow: hidden;
+  margin-top: 80px;
 }
 
 .swiper-slide {
@@ -83,12 +78,5 @@ onMounted(() => {
   height: 100%;
 }
 
-.swiper-slide img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 10px;
-  transition: transform 0.3s ease;
-}
+
 </style>

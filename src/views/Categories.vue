@@ -1,5 +1,5 @@
 <template>
-  <div class="flex items-center justify-center p-5 bg-white font-bold">
+  <div class="flex items-center justify-center h-60 mt-10 bg-white font-bold">
     <img class="w-[500px]" src="@/assets/h1.png" alt="" />
   </div>
   <div class="flex font-sacramento min-h-screen py-5 bg-gray-100">
@@ -10,7 +10,7 @@
     <div class="flex-1 p-3">
       <!-- Tabs -->
       <div
-        class="flex justify-between rounded-lg shadow-md m-auto bg-white w-87 p-3 mb-4 space-x-4"
+        class="flex justify-between rounded-lg shadow-md mx-auto bg-white w-87 py-3 px-3 mb-4 space-x-4"
       >
         <P class="text-gray-400">Men </P>
         <P class="text-gray-800 font-semibold">Women</P>

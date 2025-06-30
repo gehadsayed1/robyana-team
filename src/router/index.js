@@ -7,10 +7,11 @@ const routes = [
     component: () => import('@/views/Home.vue')
   },
   {
-    path: '/categories', // المسار الجديد لأي منتج
+    path: '/categories', 
     name: 'categories',
     component: () => import('@/views/Categories.vue')
   }
+
 ]
 
 const router = createRouter({

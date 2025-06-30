@@ -1,52 +1,60 @@
 <template>
-  <section >
-   
-
-    <!-- تغليف الكروت في فليكس علشان نتحكم -->
-    <div class="flex flex-wrap justify-center gap-5">
-      <div
+  <v-container fluid>
+    <v-row justify="center" align="stretch" class="gap-5">
+      <v-col
         v-for="(product, index) in products"
         :key="index"
-        class=" rounded-xl p-4 shadow-md hover:shadow-xl transition w-[290px] h-[500px] flex flex-col justify-between bg-white"
+        cols="12"
+        sm="6"
+        md="4"
+        lg="3"
+        class="d-flex"
       >
-        <!-- الأعلى -->
-        <div>
-          <div class="flex justify-between items-start mb-2">
-            <span class="text-xs bg-gray-100 px-2 py-1 rounded-full">New Collection</span>
-            <Heart />
-          </div>
-
-         
-          <img
-            :src="product.image"
-            alt="Product"
-            class="w-full h-64 object-cover rounded-md mb-4"
-          />
-
-          <!-- تفاصيل المنتج -->
-          <div class="text-sm text-gray-600 mb-1">{{ product.category }}</div>
-          <h3 class="font-semibold text-lg mb-1">{{ product.name }}</h3>
-          <div class="mb-4">
-            <span class="text-black font-bold">{{ product.price }} EGP</span>
-            <span class="line-through text-gray-400 ml-2">{{ product.oldPrice }} EGP</span>
-          </div>
-        </div>
-
-        <!-- الزر -->
-        <router-link
-          :to="`/product/${index}`"
-          class="bg-primary text-white m-auto w-[50%] text-sm px-4 py-2 rounded hover:bg-blue-400 text-center"
+        <v-card
+          class="rounded-xl pa-4 d-flex flex-column justify-space-between"
+          height="450"
+          width="500"
+          elevation="3"
         >
-          Show More
-        </router-link>
-      </div>
-    </div>
-  </section>
+          <!-- Header Tags and Icon -->
+          <div class="d-flex justify-space-between align-start mb-2">
+            <v-chip color="grey-lighten  " size="small">New Collection</v-chip>
+            <v-btn icon size="small" color="grey-darken-2" variant="text">
+              <Heart />
+            </v-btn>
+          </div>
+
+          <!-- Image -->
+          <v-img
+            :src="product.image"
+            height="180"
+            class="rounded mb-4"
+            cover
+          ></v-img>
+
+          <!-- Product Details -->
+          <div class="text-caption text-grey mb-1">{{ product.category }}</div>
+          <div class="font-weight-medium text-body-1 mb-1">{{ product.name }}</div>
+          <div class="mb-4">
+            <span class="font-weight-bold">{{ product.price }} EGP</span>
+            <span class="text-grey text-decoration-line-through ms-2">{{ product.oldPrice }} EGP</span>
+          </div>
+
+          <!-- Button -->
+          <router-link :to="`/product/${index}`" class="text-center">
+            <v-btn color="primary" class="mx-auto w-50 " size="small">
+              Show More
+            </v-btn>
+          </router-link>
+        </v-card>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script setup>
-import skirt from '@/assets/skirt.jpg'
 import { Heart } from 'lucide-vue-next';
+import skirt from '@/assets/skirt.jpg';
 
 const products = [
   {
@@ -56,20 +64,6 @@ const products = [
     price: 699,
     oldPrice: 1200
   },
-  {
-    image: skirt,
-    name: 'Maxi Long Skirts for Women',
-    category: 'Women',
-    price: 699,
-    oldPrice: 1200
-  },
-  {
-    image: skirt,
-    name: 'Maxi Long Skirts for Women',
-    category: 'Women',
-    price: 699,
-    oldPrice: 1200
-  },
     {
     image: skirt,
     name: 'Maxi Long Skirts for Women',
@@ -84,12 +78,27 @@ const products = [
     price: 699,
     oldPrice: 1200
   },
-    {
+      {
     image: skirt,
     name: 'Maxi Long Skirts for Women',
     category: 'Women',
     price: 699,
     oldPrice: 1200
-  }
-]
+  },
+      {
+    image: skirt,
+    name: 'Maxi Long Skirts for Women',
+    category: 'Women',
+    price: 699,
+    oldPrice: 1200
+  },
+      {
+    image: skirt,
+    name: 'Maxi Long Skirts for Women',
+    category: 'Women',
+    price: 699,
+    oldPrice: 1200
+  },
+  
+];
 </script>
