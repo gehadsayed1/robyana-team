@@ -1,5 +1,6 @@
 <template>
-  <div class="swiper-container">
+  <div class="py-5 px-10">
+    <div class="swiper-container">
     <div class="swiper-wrapper">
       <div
   v-for="(slide, index) in slides"
@@ -13,6 +14,7 @@
 
     </div>
     <div class="swiper-pagination"></div>
+  </div>
   </div>
 </template>
 
@@ -66,16 +68,20 @@ onMounted(() => {
 .swiper-container {
   position: relative;
   width: 100%;
-  height: 500px;
+  height: 450px;
   overflow: hidden;
-  margin-top: 80px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+ 
 }
+
 
 .swiper-slide {
   position: relative;
   width: 100% !important;
   flex-shrink: 0;
   height: 100%;
+
 }
 
 

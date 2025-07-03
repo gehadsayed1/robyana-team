@@ -31,6 +31,7 @@
         step="10"
         thumb-size="20"
         thumb-label="always"
+        color="primary"
       ></v-range-slider>
 
       <div class="text-sm mt-1">
