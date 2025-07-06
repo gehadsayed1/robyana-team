@@ -1,5 +1,6 @@
 <template>
   <v-card
+  @click="router.push({name:'product-details'})"
     class="pa-4 d-flex flex-column justify-space-between "
     height="400"
     width="250"
@@ -35,6 +36,9 @@
 <script setup>
 import { Heart } from 'lucide-vue-next'
 import { ref } from 'vue';
+import { useRouter } from 'vue-router';
+
+const router = useRouter()
 
 defineProps({
   product: Object
