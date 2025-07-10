@@ -10,10 +10,9 @@
           <!-- Product Section -->
           <div class="flex flex-col md:flex-row gap-8">
             <!-- Product Image -->
-
             <div class="w-full md:w-2/5">
               <img
-                :src="product.image"
+                :src="mainImage"
                 alt="Maxi Skirt"
                 class="w-full h-[500px] rounded-xl shadow-md"
               />
@@ -55,10 +54,10 @@
                   v-for="size in product.sizes"
                   :key="size"
                   @click="selectedSize = size"
-                  :class="[
+                  :class="[ 
                     'h-10 w-10 rounded-full transition-all',
                     selectedSize === size
-                      ? 'bg-primary  text-white'
+                      ? 'bg-primary text-white'
                       : 'bg-white hover:bg-gray-300',
                   ]"
                 >
@@ -75,7 +74,10 @@
                   :src="color.image"
                   :alt="color.name"
                   class="w-20 h-20 rounded cursor-pointer transition-transform transform hover:scale-105"
-                  @click="selectedColor = color.name"
+                  @click="() => {
+                    selectedColor = color.name;
+                    mainImage = color.image;
+                  }"
                   :class="{
                     'ring-2 ring-blue-500': selectedColor === color.name,
                   }"
@@ -94,6 +96,8 @@
 
               <div class="py-8 flex gap-6">
                 <button
+
+                  @click="() => $router.push({ name: 'wishlist'})"
                   class="bg-primary tracking-widest text-white w-50 px-6 py-2 rounded hover:bg-blue-600 transition-colors"
                 >
                   Add to Wishlist
@@ -106,14 +110,18 @@
               </div>
             </div>
           </div>
-
-          <!-- Size Guide Section -->
-          <div class="mt-16">
-            <SizeGuide />
-          </div>
         </div>
       </div>
     </v-container>
+
+    <!-- Size Guide Section -->
+    <div class="mt-16 py-5 bg-white">
+      <SizeGuide />
+      
+    </div>
+  <div class="mt-16 bg-gray-100">
+    <Recommend />
+  </div>
   </v-main>
 </template>
 
@@ -133,10 +141,10 @@ import img4 from "../assets/skert3.jpg";
 import img3 from "../assets/skert4.jpg";
 
 import SizeGuide from "../components/pages/SizeGuide.vue";
+import Recommend from "../components/pages/Recommend.vue";
 
 const imgs = [img1, img2, img3, img4];
 
-// Mock Data
 const product = {
   name: "Maxi Long Skirts for Women",
   description:
@@ -151,16 +159,16 @@ const product = {
     { name: "Olive", image: img1 },
   ],
   sizeGuideImages: [
-    " https://via.placeholder.com/150x300?text=Beige",
-    " https://via.placeholder.com/150x300?text=Blue",
-    " https://via.placeholder.com/150x300?text=Gray",
-    " https://via.placeholder.com/150x300?text=Brown",
+    "https://via.placeholder.com/150x300?text=Beige",
+    "https://via.placeholder.com/150x300?text=Blue",
+    "https://via.placeholder.com/150x300?text=Gray",
+    "https://via.placeholder.com/150x300?text=Brown",
   ],
 };
 
-// Reactive State
-const selectedSize = ref(product.sizes[4]); // Default selected size is "11"
-const selectedColor = ref(product.colors[0].name); // Default selected color is "Black"
+const selectedSize = ref(product.sizes[4]); // Default: "11"
+const selectedColor = ref(product.colors[0].name); // Default: "Black"
+const mainImage = ref(product.image); // Image shown above
 </script>
 
 <style>
@@ -171,7 +179,6 @@ const selectedColor = ref(product.colors[0].name); // Default selected color is 
   height: 30px;
   background-color: rgb(241, 238, 238);
   border-radius: 50%;
-  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); */
   z-index: 10;
   display: flex;
   align-items: center;
@@ -182,7 +189,6 @@ const selectedColor = ref(product.colors[0].name); // Default selected color is 
   position: relative;
 }
 
-/* الأسهم */
 .swiper-button-prev,
 .swiper-button-next {
   position: absolute;

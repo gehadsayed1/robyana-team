@@ -5,10 +5,12 @@
 
 
 
-
+:root{
+  --color-primary: #4A90E2;
+}
 
 @theme {
-  --color-primary: #4A90E2;
+  --color-primary: ##4A90E2;
 }
 
 

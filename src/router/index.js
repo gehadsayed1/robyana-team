@@ -25,7 +25,19 @@ const routes = [
     path: '/product-details', 
     name: 'product-details',
     component: () => import('@/views/ProductDetails.vue')
+  },
+      {
+    path: '/wishlist', 
+    name: 'wishlist',
+    component: () => import('@/views/WishList.vue')
   }
+  ,
+       {
+    path: '/pupup', 
+    name: 'pupup',
+    component: () => import('@/components/global/PupUop.vue')
+  }
+
 
 ]
 

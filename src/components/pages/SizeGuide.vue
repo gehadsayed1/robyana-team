@@ -1,11 +1,13 @@
 <template>
-  <div class=" p-6 rounded-lg mx-auto">
+ <v-container>
+   <div class=" p-6 rounded-lg  mx-auto">
     <!-- Title -->
     <h2 class="text-center text-2xl font-bold mb-6">Size Guide</h2>
 
+    
     <!-- Fit Type Section -->
-    <div class="mb-8">
-      <p class="text-lg font-semibold mb-3">Fit Type</p>
+    <div class="mb-8 ">
+      <!-- <p class="text-lg font-semibold mb-3">Fit Type</p> -->
       <div class="relative h-16">
         <!-- Labels -->
         <span class="absolute left-0 -top-6 text-sm text-gray-700">Skinny</span>
@@ -13,10 +15,10 @@
         <span class="absolute right-0 -top-6 text-sm text-gray-700">Oversized</span>
 
         <!-- Vertical Ticks -->
-        <div class="absolute top-6 w-full flex justify-between px-1">
-          <span class="w-px h-10 bg-gray-300"></span>
-          <span class="w-px h-10 bg-gray-300"></span>
-          <span class="w-px h-10 bg-gray-300"></span>
+        <div class="absolute top-6  border-b-1 border-gray-400 w-full flex justify-between px-1">
+          <span class="w-px h-10 bg-gray-400"></span>
+          <span class="w-px h-10 bg-gray-400"></span>
+          <span class="w-px h-10 bg-gray-400"></span>
         </div>
       </div>
 
@@ -84,6 +86,7 @@
       </tbody>
     </table>
   </div>
+ </v-container>
 </template>
 
 <script setup>
@@ -106,12 +109,14 @@ const sizes = [
 
 input[type='range']::-webkit-slider-thumb {
   appearance: none;
-  width: 20px;
+  width: 50px;
   height: 20px;
   background-color: #3b82f6;
   border-radius: 9999px;
   cursor: pointer;
-  margin-top: -9px;
+  margin-top: -23px;
+  position: relative;
+
 }
 input[type='range']::-moz-range-thumb {
   width: 20px;
