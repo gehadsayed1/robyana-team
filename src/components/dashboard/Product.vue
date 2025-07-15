@@ -21,7 +21,7 @@
 
 <script setup>
 import { ref } from 'vue';
-import img1 from '@/assets/skert3.jpg'; // تأكد من مسار الصورة
+import img1 from '@/assets/skert3.jpg'; 
 import { SquarePen, Trash } from 'lucide-vue-next';
 
 const props = defineProps({
