@@ -7,37 +7,50 @@ const routes = [
     component: () => import('@/views/Home.vue')
   },
   {
-    path: '/categories', 
+    path: '/categories',
     name: 'categories',
     component: () => import('@/views/Categories.vue')
   },
-    {
-    path: '/login', 
+  {
+    path: '/login',
     name: 'login',
     component: () => import('@/views/Login.vue')
   },
-   {
-    path: '/category', 
+  {
+    path: '/category',
     name: 'category',
     component: () => import('@/views/Products.vue')
   },
-    {
-    path: '/product-details', 
+  {
+    path: '/product-details',
     name: 'product-details',
     component: () => import('@/views/ProductDetails.vue')
   },
-      {
-    path: '/wishlist', 
+  {
+    path: '/wishlist',
     name: 'wishlist',
     component: () => import('@/views/WishList.vue')
-  }
-  ,
-       {
-    path: '/pupup', 
+  },
+  {
+    path: '/pupup',
     name: 'pupup',
     component: () => import('@/components/global/PupUop.vue')
-  }
-
+  },
+ {
+  path: '/dashboard',
+  name: 'dashboard',
+  component: () => import('@/views/dashboard/DashboardLayout.vue'),
+  meta: { hideHeaderFooter: true },
+  children: [
+    {
+      path: '',
+      name: 'dashboard-home',
+      component: () => import('@/views/dashboard/Home.vue'),
+      meta: { hideHeaderFooter: true }
+    },
+  
+  ]
+}
 
 ]
 
