@@ -28,7 +28,7 @@ onMounted(() => {
       </aside>
 
       <!-- Main Content -->
- <v-main class="bg-gray-100" style="margin-left: 20px; margin-top: 20px;">
+ <v-main class="bg-gray-100 w-[calc(100vh-64px)]" style="margin-left: 10px; margin-top: 20px;">
   <router-view v-if="!loading" />
   <div v-else class="">
     <v-progress-circular indeterminate color="primary" />

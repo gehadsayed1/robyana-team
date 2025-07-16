@@ -44,10 +44,30 @@ const routes = [
   children: [
     {
       path: '',
-      name: 'dashboard-home',
+      name: 'Dashboard',
       component: () => import('@/views/dashboard/Home.vue'),
       meta: { hideHeaderFooter: true }
     },
+    {
+      path: '/admin',
+      name: 'Admin',
+      component: () => import('@/views/dashboard/Admin.vue'),
+      meta: { hideHeaderFooter: true }
+    },
+    {
+      path: '/add-product',
+      name: 'Add Product',
+      component: () => import('@/components/dashboard/AddProductForm.vue'),
+      meta: { hideHeaderFooter: true }
+    },
+     {
+      path: '/store-control',
+      name: 'Store Control Center',
+      component: () => import('@/views/dashboard/StorControl.vue'),
+      meta: { hideHeaderFooter: true }
+    },
+   
+
   
   ]
 }

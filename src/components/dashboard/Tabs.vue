@@ -1,5 +1,5 @@
 <template>
-  <ul class="flex bg-white rounded-2xl shadow-md max-w-[770px] justify-between">
+  <ul class="flex bg-white px-10 py-1 rounded-2xl shadow-md max-w-[770px] justify-between">
     <li
       v-for="(tab, index) in tabs"
       :key="index"
