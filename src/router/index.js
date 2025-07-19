@@ -66,7 +66,18 @@ const routes = [
       component: () => import('@/views/dashboard/StorControl.vue'),
       meta: { hideHeaderFooter: true }
     },
-   
+        {
+      path: '/requests',
+      name: 'Requests',
+      component: () => import('@/views/dashboard/Requests.vue'),
+      meta: { hideHeaderFooter: true }
+    },
+        {
+      path: '/member',
+      name: 'Members',
+      component: () => import('@/views/dashboard/TeamMembersPage.vue'),
+      meta: { hideHeaderFooter: true }
+    },
 
   
   ]

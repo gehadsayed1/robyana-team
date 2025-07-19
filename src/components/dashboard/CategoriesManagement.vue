@@ -24,59 +24,20 @@
     </div>
 
     <!-- Existing Categories -->
-    <div>
-      <h3 class="text-sm font-medium mb-2">Existing Categories</h3>
-      <div class="pb-2 mb-2">
-        <div class="flex items-center justify-between">
-          <input
-            type="text"
-            placeholder="Enter category name"
-            class="w-full px-3 py-2 borders rounded-lg focus:outline-none focus:border-blue-500"
-          />
-          <!-- <div class="flex space-x-2">
-            <EditIcon class="w-4 h-4 text-blue-500 cursor-pointer" />
-            <DeleteIcon class="w-4 h-4 text-red-500 cursor-pointer" />
-          </div> -->
-        </div>
-      </div>
-      <div class="flex justify-end">
-        <!-- Subcategories under Women -->
-        <div class="w-[85%]">
-          <div
-            class="flex bg-gray-200 py-3 px-3 rounded-lg items-center justify-between mb-2"
-          >
-            <div class="flex items-center gap-2">
-              <ChevronRight :size="20" :stroke-width="2" />
-              <span class="text-md"
-                >Pants
-                <small class="text-gray-800 bg-gray-300 py-2 px-2 rounded-xl"
-                  >(under women)</small
-                ></span
-              >
-            </div>
-            <div class="flex gap-4">
-              <EditIcon class="w-4 h-4 text-blue-500 cursor-pointer" />
-              <Trash2 class="w-4 h-4 text-red-500 cursor-pointer" />
-            </div>
-          </div>
-          <div
-            class="flex bg-gray-200 py-3 px-3 rounded-lg items-center justify-between mb-2"
-          >
-            <div class="flex items-center gap-2">
-              <ChevronRight :size="20" :stroke-width="2" />
-              <span class="text-md"
-                >Dresses
-                <small class="text-gray-800 bg-gray-300 py-2 px-2 rounded-xl"
-                  >(under women)</small
-                ></span
-              >
-            </div>
+    <div c>
+      <h3 class="text-gray-700 font-medium mb-4">Existing Categories</h3>
+      <div
+        class="flex items-center justify-between rounded-md borders py-2 px-2 pb-2 mb-2"
+      >
+        <button class="flex items-center text-gray-500 hover:text-gray-700">
+          <ChevronDown />
+          Women
+        </button>
+        <div class="flex gap-3">
+          <Plus class="text-primary hover:text-blue-700 cursor-pointer" />
+          <SquarePen class="text-primary hover:text-blue-700 cursor-pointer" />
 
-            <div class="flex gap-4">
-              <EditIcon class="w-4 h-4 text-blue-500 cursor-pointer" />
-              <Trash2 class="w-4 h-4 text-red-500 cursor-pointer" />
-            </div>
-          </div>
+          <Trash2 class="text-red-500 hover:text-red-700 cursor-pointer" />
         </div>
       </div>
     </div>
@@ -90,6 +51,9 @@ import {
   ChevronLeft,
   ChevronRight,
   Trash2,
+  SquarePen,
+  Plus,
+  ChevronDown,
 } from "lucide-vue-next";
 
 // Data

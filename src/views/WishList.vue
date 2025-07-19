@@ -73,7 +73,7 @@ const applyPromoCode = () => {
 </script>
 
 <template>
-  <v-main class=" bg-gray-50">
+  <v-main class="bg-gray-50">
     <!-- Header -->
     <div class="flex items-center justify-center h-60 bg-white font-bold">
       <img class="" src="@/assets/wishlist.jpg" alt="" />
@@ -86,7 +86,7 @@ const applyPromoCode = () => {
           Your wishlist is empty.
         </div>
 
-        <div  v-else>
+        <div v-else>
           <div
             v-for="(item, index) in wishlist"
             :key="index"
@@ -131,78 +131,75 @@ const applyPromoCode = () => {
 
                 <!-- Size dropdown -->
 
-<div
-  class="text-gray-600 mb-2 relative flex items-center gap-4"
->
-  <p class="text-gray-600">Size:</p>
-  <div class="flex items-center gap-4 cursor-pointer">
-    <p
-      class="bg-primary w-9 h-9 flex text-white px-2 py-1 rounded-full items-center justify-center"
-    >
-      {{ item.size }}
-    </p>
-    <ChevronDown
-      @click="toggleSizeDropdown(index)"
-      class="w-7 h-7 text-gray-500 cursor-pointer"
-    />
-  </div>
+                <div
+                  class="text-gray-600 mb-2 relative flex items-center gap-4"
+                >
+                  <p class="text-gray-600">Size:</p>
+                  <div class="flex items-center gap-4 cursor-pointer">
+                    <p
+                      class="bg-primary w-9 h-9 flex text-white px-2 py-1 rounded-full items-center justify-center"
+                    >
+                      {{ item.size }}
+                    </p>
+                    <ChevronDown
+                      @click="toggleSizeDropdown(index)"
+                      class="w-7 h-7 text-gray-500 cursor-pointer"
+                    />
+                  </div>
 
-  <!-- Dropdown -->
-  <div
-    v-if="item.showSizes"
-    class="absolute z-10 bg-white border border-gray-300 mt-12 left-20 rounded shadow-md"
-  >
-    <ul>
-      <li
-        v-for="size in sizes"
-        :key="size"
-        @click="selectSize(index, size)"
-        class="px-4 py-2 hover:bg-blue-100 cursor-pointer"
-      >
-        {{ size }}
-      </li>
-    </ul>
-  </div>
-</div>
-
-
+                  <!-- Dropdown -->
+                  <div
+                    v-if="item.showSizes"
+                    class="absolute z-10 bg-white border border-gray-300 mt-12 left-20 rounded shadow-md"
+                  >
+                    <ul>
+                      <li
+                        v-for="size in sizes"
+                        :key="size"
+                        @click="selectSize(index, size)"
+                        class="px-4 py-2 hover:bg-blue-100 cursor-pointer"
+                      >
+                        {{ size }}
+                      </li>
+                    </ul>
+                  </div>
+                </div>
 
                 <p class="text-gray-600">{{ item.price }} EGP</p>
               </div>
             </div>
 
-               <div class="flex items-end  gap-4">
-             <div class=" border py-3 px-3  cursor-pointer text-gray-500 rounded">
+            <div class="flex items-end gap-4">
+              <div
+                class="border py-3 px-3 cursor-pointer text-gray-500 rounded"
+              >
                 <Trash2 size="20" />
-             </div>
+              </div>
+            </div>
           </div>
-        
-          </div>
-       
         </div>
       </div>
 
       <!-- Summary Section -->
       <div class="col-span-12 md:col-span-4">
         <div class="bg-white rounded-md shadow-md py-4 px-4">
-          <h2 class="text-xl border-b-1 pb-2 border-gray-400 font-bold mb-4">Summary</h2>
-           <label for="promo-code" class="text-gray-700 py-3  text-lg">Promo Code</label>
-          <div class="mb-4 flex items-center justify-between ">
-           
-         <div>
-           
-            <input
-              id="promo-code"
-              type="text"
-              v-model="promoCode"
-              placeholder="Enter promo code"
-              class= "aplay-inp w-70  "
-            />
-         </div>
-            <span
-              @click="applyPromoCode"
-              class="aplay-but w-20    transition"
-            >
+          <h2 class="text-xl border-b-1 pb-2 border-gray-400 font-bold mb-4">
+            Summary
+          </h2>
+          <label for="promo-code" class="text-gray-700 py-3 text-lg"
+            >Promo Code</label
+          >
+          <div class="mb-4 flex items-center justify-between">
+            <div>
+              <input
+                id="promo-code"
+                type="text"
+                v-model="promoCode"
+                placeholder="Enter promo code"
+                class="aplay-inp w-70"
+              />
+            </div>
+            <span @click="applyPromoCode" class="aplay-but w-20 transition">
               Apply
             </span>
           </div>
@@ -213,19 +210,17 @@ const applyPromoCode = () => {
             >
             <!-- <span class="text-gray-800">{{ subtotal }} EGP</span> -->
           </div>
-          <div class="flex justify-between mb-2 border-b-1 border-gray-300 pb-2">
+          <div
+            class="flex justify-between mb-2 border-b-1 border-gray-300 pb-2"
+          >
             <span class="text-green-500">Discount</span>
             <span class="text-green-500">{{ discount }} EGP</span>
           </div>
-          <div class="flex justify-between py-5  text-xl font-semibold">
+          <div class="flex justify-between py-5 text-xl font-semibold">
             <span class="text-gray-600">Total PayPal</span>
             <span class="text-gray-800">{{ total }} EGP</span>
           </div>
-          <button
-            class="try-boutton "
-          >
-            Try Now
-          </button>
+          <button class="try-boutton">Try Now</button>
         </div>
       </div>
     </v-container>
@@ -233,21 +228,20 @@ const applyPromoCode = () => {
 </template>
 
 <style scoped>
-
-.aplay-inp{
-    padding: 10px;
-    border: 1px solid #4CAF50;
-    border-radius: 4px 0px 0px 4px;
-    outline: none;
-    color: #4CAF50;
+.aplay-inp {
+  padding: 10px;
+  border: 1px solid #4caf50;
+  border-radius: 4px 0px 0px 4px;
+  outline: none;
+  color: #4caf50;
 }
 
-.aplay-but{
-    padding: 10px;
-    border: 1px solid #4CAF50;
-    border-radius: 0px 4px 4px 0px;
-  color: #4CAF50;
-    cursor: pointer;
+.aplay-but {
+  padding: 10px;
+  border: 1px solid #4caf50;
+  border-radius: 0px 4px 4px 0px;
+  color: #4caf50;
+  cursor: pointer;
 }
 .try-boutton {
   width: 100%;
@@ -259,5 +253,4 @@ const applyPromoCode = () => {
   border-radius: 4px;
   cursor: pointer;
 }
-
 </style>
