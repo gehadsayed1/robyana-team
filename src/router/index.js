@@ -11,6 +11,7 @@ const routes = [
     name: 'categories',
     component: () => import('@/views/Categories.vue')
   },
+  
   {
     path: '/login',
     name: 'login',

@@ -88,7 +88,7 @@ const closeMenu = () => {
 const navLinks = [
   { label: "Home", to: "/" },
   { label: "Categories", to: "/categories" },
-  { label: "Mix & Match", to: "/" },
+  { label: "Mix & Match", to: "/product-details" },
 ];
 </script>
 
