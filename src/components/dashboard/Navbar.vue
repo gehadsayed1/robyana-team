@@ -35,8 +35,9 @@ const route = useRoute();
             />
           </div>
 
-          <!-- Settings icon -->
-          <settings class="h-6 w-6 text-blue-500 cursor-pointer" />
+       <router-link to="/settings" class="inline-block">
+  <Settings class="h-6 w-6 text-blue-500 cursor-pointer hover:text-blue-600 transition-colors" />
+</router-link>
 
           <!-- Profile/User icon -->
           <user class="h-6 w-6 text-gray-500 cursor-pointer" />
@@ -47,5 +48,7 @@ const route = useRoute();
 </template>
 
 <style scoped>
-/* أضف أي تعديلات خاصة هنا إذا احتجت */
+
+
+
 </style>

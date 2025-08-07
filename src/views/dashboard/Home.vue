@@ -177,7 +177,7 @@
               </div>
             </div>
             <div
-              class="bg-pink-300 flex justify-center text-lg w-full text-gray-700 px-3 py-3 rounded-md hover:bg-gray-400"
+              class="bg-pink-300 flex justify-center text-lg w-full text-gray-700 px-3 py-3 rounded-md hover:bg-pink-200"
             >
               <span>Manage Category</span>
             </div>
@@ -189,12 +189,11 @@
     <!-- Average Time Spent Analytics -->
     <div>
       <div class="flex items-center gap-2 mb-4">
-        <Clock3 :size="28" :stroke-width="2" class="text-yellow-500 " />
+        <Clock3 :size="28" :stroke-width="2" class="text-yellow-500" />
         <h2 class="text-xl font-meduim">Average Time Spent Analytics</h2>
-      
       </div>
       <div class="grid grid-cols-2 gap-4">
-      <div
+        <div
           class="bg-white border border-gray-200 rounded-lg shadow-md px-4 py-4 flex items-center justify-between"
         >
           <div class="flex flex-col items-center gap-2">
@@ -202,15 +201,13 @@
             <h3 class="text-3xl text-yellow-400 font-meduim">4.2 min</h3>
             <div class="flex items-center gap-2 mt-1 text-xs text-green-500">
               <ArrowUp :size="12" :stroke-width="3" />
-              <p class="">+2.1% from yesterday
-
-              </p>
+              <p class="">+2.1% from yesterday</p>
             </div>
           </div>
           <span
             class="w-15 h-15 bg-yellow-50 rounded-lg flex items-center justify-center text-white"
           >
-            <SunMedium  class="text-yellow-500" :size="30" />
+            <SunMedium class="text-yellow-500" :size="30" />
           </span>
         </div>
         <div
@@ -221,15 +218,13 @@
             <h3 class="text-3xl text-yellow-400 font-meduim">5.8 min</h3>
             <div class="flex items-center gap-2 mt-1 text-xs text-green-500">
               <ArrowUp :size="12" :stroke-width="3" />
-              <p class="">+5.8% from last month
-
-              </p>
+              <p class="">+5.8% from last month</p>
             </div>
           </div>
           <span
             class="w-15 h-15 bg-yellow-50 rounded-lg flex items-center justify-center text-white"
           >
-            <CalendarDays  class="text-yellow-600" :size="30" />
+            <CalendarDays class="text-yellow-600" :size="30" />
           </span>
         </div>
       </div>
