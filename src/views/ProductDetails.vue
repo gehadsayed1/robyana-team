@@ -134,7 +134,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 
-import img from "../assets/skirt.jpg";
+
 import img1 from "../assets/skert1.jpg";
 import img2 from "../assets/skert2.jpg";
 import img4 from "../assets/skert3.jpg";

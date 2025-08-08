@@ -1,166 +1,152 @@
 <template>
-
-      <v-container >
+  <v-container>
+    <!-- العنوان -->
     <v-row class="mb-6 py-20">
       <v-col cols="12">
-        <h3 class="text-center text-2xl font-weight-bold">Recommendation For You</h3>
+        <h3 class="text-center text-2xl font-weight-bold">
+          Recommendation For You
+        </h3>
       </v-col>
     </v-row>
 
-    <!-- Tabs -->
     <v-tabs
       v-model="tab"
       background-color="transparent"
       color="primary"
       grow
       density="comfortable"
-      class="mb-4 w-[700px] mx-auto"
+      class="mb-6 w-full max-w-4xl mx-auto"
     >
-      <v-tab   v-for="item in tabs" :key="item"  >{{ item }}</v-tab>
+      <v-tab v-for="item in tabs" :key="item">{{ item }}</v-tab>
     </v-tabs>
 
-    <!-- Swiper -->
-<swiper
-  class="custom-swiper py-10"
-  :modules="modules"
-  :slides-per-view="3"
-  :space-between="5"
-  :slides-offset-before="20"
-  :slides-offset-after="20"
-  navigation
->
-  <swiper-slide
-    v-for="product in products"
-    :key="product.id"
-    class="d-flex justify-center"
-  >
-    <ProductCard :product="product" />
-  </swiper-slide>
-</swiper>
 
-
-
+    <swiper
+      class="custom-swiper py-6"
+      :modules="modules"
+      :slides-per-view="1.2"
+      :space-between="12"
+      :slides-offset-before="20"
+      :slides-offset-after="20"
+      navigation
+      :breakpoints="swiperBreakpoints"
+    >
+      <swiper-slide
+        v-for="product in products"
+        :key="product.id"
+        class="d-flex justify-center"
+      >
+        <ProductCard :product="product" />
+      </swiper-slide>
+    </swiper>
   </v-container>
-
 </template>
 
 <script setup>
-import { ref } from 'vue'
-import ProductCard from './ProductCard.vue'
+import { ref } from "vue";
+import ProductCard from "./ProductCard.vue";
 
-// Swiper modules
-import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules'
-import { Swiper, SwiperSlide } from 'swiper/vue'
+// Swiper components
+import { Navigation } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/vue";
 
-import 'swiper/css'
-import 'swiper/css/navigation'
-import 'swiper/css/pagination'
-import 'swiper/css/scrollbar'
+// Styles
+import "swiper/css";
+import "swiper/css/navigation";
 
-// Required for Swiper modules
-const modules = [Navigation, Pagination, Scrollbar, A11y]
+// Modules
+const modules = [Navigation];
 
 // Data
-import skirt from '@/assets/skirt.jpg'
+import skirt from "@/assets/skert2.jpg";
 
-const tab = ref(0)
-const tabs = ['T-Shirt', 'Pants', 'Jeans', 'Shoes', 'Sweatpants']
+const tab = ref(0);
+const tabs = ["T-Shirt", "Pants", "Jeans", "Shoes", "Sweatpants"];
 
 const products = [
-  {
-    id: 1,
-    image: skirt,
-    name: 'Maxi Long Skirts',
-    category: 'Women',
-    price: 699,
-    oldPrice: 1200
+  { id: 1, image: skirt, name: "Maxi Long Skirts", category: "Women", price: 699, oldPrice: 1200 },
+  { id: 2, image: skirt, name: "Maxi Long Skirts", category: "Women", price: 699, oldPrice: 1200 },
+  { id: 3, image: skirt, name: "Maxi Long Skirts", category: "Women", price: 699, oldPrice: 1200 },
+  { id: 4, image: skirt, name: "Maxi Long Skirts", category: "Women", price: 699, oldPrice: 1200 },
+  { id: 5, image: skirt, name: "Maxi Long Skirts", category: "Women", price: 699, oldPrice: 1200 },
+];
+
+
+const swiperBreakpoints = {
+
+  320: {
+    slidesPerView: 1.2,
+    spaceBetween: 12,
+    slidesOffsetBefore: 16,
+    slidesOffsetAfter: 16,
   },
-  {
-    id: 2,
-    image: skirt,
-    name: 'Maxi Long Skirts',
-    category: 'Women',
-    price: 699,
-    oldPrice: 1200
+  
+  640: {
+    slidesPerView: 2.2,
+    spaceBetween: 16,
+    slidesOffsetBefore: 20,
+    slidesOffsetAfter: 20,
   },
-  {
-    id: 3,
-    image: skirt,
-    name: 'Maxi Long Skirts',
-    category: 'Women',
-    price: 699,
-    oldPrice: 1200
+  
+  768: {
+    slidesPerView: 2.5,
+    spaceBetween: 20,
   },
-  {
-    id: 4,
-    image: skirt,
-    name: 'Maxi Long Skirts',
-    category: 'Women',
-    price: 699,
-    oldPrice: 1200
+ 
+  1024: {
+    slidesPerView: 3,
+    spaceBetween: 24,
+    slidesOffsetBefore: 0,
+    slidesOffsetAfter: 0,
   },
-  {
-    id: 5,
-    image: skirt,
-    name: 'Maxi Long Skirts',
-    category: 'Women',
-    price: 699,
-    oldPrice: 1200
-  }
-]
+};
 </script>
 
-<style >
+<style>
 
 .swiper-button-next,
 .swiper-button-prev {
-  color: black;
-  width: 30px;
-  height: 30px;
-  background-color: rgb(241, 238, 238);
-  border-radius: 50%;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  z-index: 10;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.custom-swiper {
-  position: relative;
-}
-
-/* الأسهم */
-.swiper-button-prev,
-.swiper-button-next {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  color: black;
-  width: 30px;
-  height: 30px;
-  background-color: rgb(240, 240, 240);
+  color: #000;
+  width: 36px;
+  height: 36px;
+  background-color: rgba(255, 255, 255, 0.9);
   border-radius: 50%;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
   z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.9;
+  transition: all 0.3s ease;
 }
 
-/* سهم اليمين */
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+/* موضع الأسهم */
+.swiper-button-prev {
+  left: 10px;
+}
+
 .swiper-button-next {
   right: 10px;
 }
 
-/* سهم الشمال */
-.swiper-button-prev {
-  left: 45px;
-}
 
-/* أيقونة الأسهم */
 .swiper-button-next::after,
 .swiper-button-prev::after {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: bold;
 }
 
-</style>
 
+@media (max-width: 640px) {
+  .custom-swiper {
+    padding-top: 1rem;
+    padding-bottom: 1.5rem;
+  }
+}
+</style>
