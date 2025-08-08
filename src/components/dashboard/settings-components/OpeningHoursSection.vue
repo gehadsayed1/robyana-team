@@ -28,12 +28,12 @@
                 type="checkbox"
                 :checked="!day.isClosed"
                 @change="toggleDay(day)"
-                class="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500 focus:ring-2"
+                class="w-4 h-4  bg-gray-100 border-gray-300 rounded focus:ring-0  checked:bg-blue-600 checked:border-blue-600"
               />
               <span
                 :class="[
                   'ml-2 text-sm font-medium',
-                  day.isClosed ? 'text-red-600' : 'text-blue-600',
+                  day.isClosed ? 'text-red-600' : '',
                 ]"
               >
                 {{ day.isClosed ? "Closed" : "Open" }}
@@ -50,8 +50,8 @@
               >
                 <Clock4 size="15" />
                 <select
-                  v-model="day.closeTime"
-                  class="px-2 py-1 rounded text-sx focus:outline-none focus:ring-0 focus:ring-blue-500 focus:border-blue-500"
+                  v-model="day.openTime"
+                  class="px-2 py-1 rounded text-sm focus:outline-none focus:ring-0 focus:ring-blue-500 focus:border-blue-500"
                 >
                   <option v-for="time in timeOptions" :key="time" :value="time">
                     {{ time }}
@@ -59,7 +59,7 @@
                 </select>
               </div>
 
-              <span class="text-lg font-semibold text-gray-600 pr-2">to</span>
+              <span class="text-md font-semibold text-gray-600 px-2">to</span>
 
               <!-- Clock Icon + Close Time -->
               <div
@@ -81,28 +81,29 @@
       </div>
 
       <!-- Google Maps URL -->
-      <div class="mt-2 mb-2">
+      <div class="mt-6 mb-4">
         <label class="block text-lg font-medium text-gray-900 mb-2">
           Google Maps Embed URL (Optional)
         </label>
         <input
           v-model="googleMapsUrl"
           type="url"
+          placeholder="Enter Google Maps embed URL..."
           class="w-full px-3 py-2 borders rounded-lg focus:outline-none focus:border-blue-500"
         />
       </div>
 
       <!-- Action Buttons -->
-      <div class="flex justify-end gap-3 pb-2">
+      <div class="flex justify-end gap-3 pb-4">
         <v-button
-          class="text-gray-700 w-40 py-2 px-2 flex justify-center items-center border border-gray-300 rounded-md hover:bg-gray-50 transition-colors font-medium"
+          class="text-gray-700 w-40 py-2 px-4 flex justify-center items-center border border-gray-300 rounded-md hover:bg-gray-50 transition-colors font-medium"
         >
           Cancel
         </v-button>
         <v-button
-          class="bg-primary text-white w-40 py-2 px-2 flex justify-center items-center rounded-md hover:bg-blue-700 transition-colors font-medium"
+          class="bg-primary text-white w-40 py-2 px-4 flex justify-center items-center rounded-md hover:bg-blue-700 transition-colors font-medium"
         >
-          Create Filter
+          Save Changes
         </v-button>
       </div>
     </div>
@@ -191,3 +192,14 @@ const toggleDay = (day) => {
   day.isClosed = !day.isClosed;
 };
 </script>
+
+<style scoped>
+/* Custom checkbox styles for blue color */
+input[type="checkbox"] {
+  accent-color:  var(--color-primary);
+}
+
+
+
+
+</style>

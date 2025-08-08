@@ -13,7 +13,7 @@ color="grey-lighten-4"
   </router-link>
 
   <!-- Centered Nav Links -->
-  <div class="flex-1 flex justify-center items-center hidden md:flex">
+  <div class="flex-1 flex justify-center items-center  md:flex">
     <v-btn
       v-for="(link, i) in navLinks"
       :key="i"

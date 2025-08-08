@@ -1,8 +1,6 @@
 <script setup>
-
 import { Search, Settings, User } from "lucide-vue-next";
 import { useRoute } from "vue-router";
-
 
 const route = useRoute();
 </script>
@@ -35,20 +33,23 @@ const route = useRoute();
             />
           </div>
 
-       <router-link to="/settings" class="inline-block">
-  <Settings class="h-6 w-6 text-blue-500 cursor-pointer hover:text-blue-600 transition-colors" />
-</router-link>
+          <router-link to="/settings" class="inline-block">
+            <Settings
+              class="h-6 w-6 text-blue-500 cursor-pointer hover:text-blue-600 transition-colors"
+            />
+          </router-link>
 
           <!-- Profile/User icon -->
-          <user class="h-6 w-6 text-gray-500 cursor-pointer" />
+         
+          <router-link to="/profile" class="inline-block">
+            <User
+              class="h-6 w-6 text-blue-500 cursor-pointer hover:text-blue-600 transition-colors"
+            />
+          </router-link>
         </div>
       </div>
     </v-container>
   </div>
 </template>
 
-<style scoped>
-
-
-
-</style>
+<style scoped></style>

@@ -88,7 +88,7 @@ const routes = [
         {
         path: "/help",
         name: "Help",
-        // component: () => import("@/views/dashboard/Help.vue"),
+        component: () => import("@/views/dashboard/Help.vue"),
         meta: { hideHeaderFooter: true },
       },
       {
@@ -96,6 +96,12 @@ const routes = [
         name: "Logout",
        
         redirect: "/login",
+        meta: { hideHeaderFooter: true },
+      },
+      {
+        path: "/profile",
+        name: "Profile",
+        component: () => import("@/views/dashboard/Profile.vue"),
         meta: { hideHeaderFooter: true },
       },
     ],

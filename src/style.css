@@ -16,3 +16,6 @@
     border: 1px solid #4576d7; /* Tailwind's gray-200 */
 }
 
+input[type="checkbox"] {
+  accent-color:  var(--color-primary);
+}
