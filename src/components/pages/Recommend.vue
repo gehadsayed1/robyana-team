@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <!-- العنوان -->
-    <v-row class="mb-6 py-20">
+    <v-row class="mb-6 ">
       <v-col cols="12">
         <h3 class="text-center text-2xl font-weight-bold">
           Recommendation For You
@@ -25,7 +25,7 @@
       class="custom-swiper py-6"
       :modules="modules"
       :slides-per-view="1.2"
-      :space-between="12"
+      :space-between="10"
       :slides-offset-before="20"
       :slides-offset-after="20"
       navigation
@@ -34,7 +34,7 @@
       <swiper-slide
         v-for="product in products"
         :key="product.id"
-        class="d-flex justify-center"
+     
       >
         <ProductCard :product="product" />
       </swiper-slide>

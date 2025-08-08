@@ -1,10 +1,10 @@
 <template>
   <v-card
     @click="goToProduct"
-    class="py-3 px-4 flex flex-col justify-between cursor-pointer"
+    class=" px-4 flex flex-col justify-between cursor-pointer"
     :class="{ 'mx-auto': $vuetify.display.mdAndUp }"
     :elevation="hovered ? 10 : 2"
-    :height="$vuetify.display.xs ? 390 : 400"
+    :height="$vuetify.display.xs ? 390 : 390"
     :width="$vuetify.display.xs ? '90%' : $vuetify.display.sm ? '230' : '250'"
     @mouseenter="hovered = true"
     @mouseleave="hovered = false"
@@ -42,8 +42,8 @@
       <v-btn
         color="primary"
         variant="flat"
-        class="w-full "
-        style="min-height: 30px; font-size: 14px; font-weight: 500"
+        class="w-[85%] "
+
         @click.stop="goToProduct"
       >
         Show More
