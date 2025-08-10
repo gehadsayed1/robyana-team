@@ -1,7 +1,7 @@
 <template>
-  <div class="py-5 px-4 md:px-10">
+  <div class="py-4 px-5 md:px-16">
     <!-- Swiper Container -->
-    <div class="swiper-container relative rounded-lg shadow-lg overflow-hidden">
+    <div class="swiper-container bg-gray-100 relative overflow-hidden">
       <div class="swiper-wrapper">
         <div
           v-for="(slide, index) in slides"
@@ -12,12 +12,12 @@
           <img
             :src="slide.image"
             :alt="slide.title"
-            class="w-full h-full object-cover"
+            class="w-full h-full object-cover rounded-lg"
           />
         </div>
       </div>
 
-      <!-- Pagination -->
+   
       <div class="swiper-pagination"></div>
     </div>
   </div>
@@ -31,6 +31,7 @@ import { Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 
+// Props
 const props = defineProps({
   slides: {
     type: Array,
@@ -38,12 +39,15 @@ const props = defineProps({
   },
 });
 
+// Router
 const router = useRouter();
 
+// Navigation on click
 const goToSlideLink = (slide) => {
   router.push({ name: "categories" });
 };
 
+// Swiper Instance
 let swiperInstance = null;
 
 onMounted(() => {
@@ -55,17 +59,15 @@ onMounted(() => {
     pagination: {
       el: ".swiper-pagination",
       clickable: true,
+      dynamicBullets: false,
     },
     autoplay: {
       delay: 3000,
       disableOnInteraction: false,
     },
-  
-    touchRatio: 1,
     grabCursor: true,
   });
 });
-
 
 onBeforeUnmount(() => {
   if (swiperInstance) {
@@ -74,16 +76,18 @@ onBeforeUnmount(() => {
 });
 </script>
 
-<style scoped>
-
+<style>
+/* Container for Swiper */
 .swiper-container {
   width: 100%;
-  aspect-ratio: 16 / 6; 
+  aspect-ratio: 16 / 6;
   max-height: 500px;
-  background-color: #f3f4f6;
   margin-top: 60px;
+  padding-bottom: 40px;
+  overflow: hidden;
 }
 
+/* Slides */
 .swiper-slide {
   width: 100% !important;
   height: 100%;
@@ -92,27 +96,47 @@ onBeforeUnmount(() => {
   justify-content: center;
 }
 
+.swiper-pagination {
+  position: static !important;
+  transform: none !important;
+  top: auto !important;
+  bottom: auto !important;
+  width: 100%;
+  text-align: center;
+  padding: 16px 0;
 
+  border-radius: 0 0 0.5rem 0.5rem;
+}
+
+.swiper-pagination-bullet {
+  width: 18px;
+  height: 18px;
+  background-color: #7e7e7e;
+  border-radius: 50%;
+  opacity: 1;
+  margin: 0 6px;
+  transition: all 0.3s ease;
+}
+
+/* Active Bullet */
+.swiper-pagination-bullet-active {
+  background-color: var(--color-primary);
+
+  box-shadow: 0 0 8px rgba(59, 130, 246, 0.4);
+}
+
+/* Responsive Adjustments */
 @media (max-width: 640px) {
   .swiper-container {
-    aspect-ratio: 1 / 1; 
+    aspect-ratio: 1 / 1;
+    padding-bottom: 50px;
   }
 }
 
 @media (min-width: 641px) and (max-width: 1024px) {
   .swiper-container {
     aspect-ratio: 16 / 7;
+    padding-bottom: 45px;
   }
-}
-
-
-.swiper-pagination-bullet {
-  width: 8px;
-  height: 8px;
-  background-color: #aaa;
-}
-
-.swiper-pagination-bullet-active {
-  background-color: #3b82f6;
 }
 </style>

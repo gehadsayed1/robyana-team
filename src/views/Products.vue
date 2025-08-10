@@ -1,5 +1,5 @@
 <template>
-<v-main>
+<section>
       <div class="flex items-center justify-center h-60  bg-white font-bold">
     <img class="" src="@/assets/h1.jpg" alt="" />
   </div>
@@ -91,7 +91,7 @@
       </div>
     </div>
   </div>
-</v-main>
+</section>
 </template>
 
 <script setup>

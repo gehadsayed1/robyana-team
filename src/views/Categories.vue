@@ -5,7 +5,7 @@ import ShopByCategories from '../components/pages/ShopByCategories.vue';
 
 import skirt from '@/assets/skert2.jpg'
 
-const products =  [
+const products = [
   {
     id: 1,
     image: skirt,
@@ -39,33 +39,31 @@ const products =  [
     oldPrice: 1200
   },
   {
-    id: 4,
-    image: skirt,
-    name: 'Maxi Long Skirts',
-    category: 'Women',
-    price: 699,
-    oldPrice: 1200
-  },
-  {
-    id: 4,
-    image: skirt,
-    name: 'Maxi Long Skirts',
-    category: 'Women',
-    price: 699,
-    oldPrice: 1200
-  },
-  {
-    id: 4,
-    image: skirt,
-    name: 'Maxi Long Skirts',
-    category: 'Women',
-    price: 699,
-    oldPrice: 1200
-  },
-  
-
-  {
     id: 5,
+    image: skirt,
+    name: 'Maxi Long Skirts',
+    category: 'Women',
+    price: 699,
+    oldPrice: 1200
+  },
+  {
+    id: 6,
+    image: skirt,
+    name: 'Maxi Long Skirts',
+    category: 'Women',
+    price: 699,
+    oldPrice: 1200
+  },
+  {
+    id: 7,
+    image: skirt,
+    name: 'Maxi Long Skirts',
+    category: 'Women',
+    price: 699,
+    oldPrice: 1200
+  },
+  {
+    id: 8,
     image: skirt,
     name: 'Maxi Long Skirts',
     category: 'Women',
@@ -74,34 +72,27 @@ const products =  [
   }
 ]
 </script>
+
 <template>
-  <v-container>
-   <v-main>
-     <Recommend />
+  <div class="container mx-auto px-4">
+    <!-- Sections -->
+    <Recommend />
     <ShopByCategories />
- <v-row dense>
- <v-row class="mt-8 mb-12 px-4">
- 
-  <v-col cols="12" class="text-center">
-    <h2 class="text-h5 font-weight-bold mb-6">On Sale</h2>
-  </v-col>
 
-  
-  <v-col
-    v-for="product in products"
-    :key="product.id"
-    cols="12"      
-    sm="6"        
-    lg="3"        
-    class="flex justify-center" 
-  >
-    <ProductCard :product="product" />
-  </v-col>
-</v-row>
-</v-row>
+    <!-- On Sale Section -->
+    <div class="mt-8 mb-12">
+      <h2 class="text-center text-xl font-bold mb-6">On Sale</h2>
 
-
-   </v-main>
-
-  </v-container>
+      <!-- Product Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div
+          v-for="product in products"
+          :key="product.id"
+          class="flex justify-center"
+        >
+          <ProductCard :product="product" />
+        </div>
+      </div>
+    </div>
+  </div>
 </template>

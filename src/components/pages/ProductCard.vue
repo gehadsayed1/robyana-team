@@ -1,7 +1,7 @@
 <template>
   <v-card
     @click="goToProduct"
-    class=" px-4 flex flex-col justify-between cursor-pointer"
+    class="px-4 flex flex-col justify-between cursor-pointer"
     :class="{ 'mx-auto': $vuetify.display.mdAndUp }"
     :elevation="hovered ? 10 : 2"
     :height="$vuetify.display.xs ? 390 : 390"
@@ -38,12 +38,11 @@
       </span>
     </div>
 
-    <div class="flex justify-center ">
+    <div class="flex justify-center">
       <v-btn
         color="primary"
         variant="flat"
-        class="w-[85%] "
-
+        class="w-[85%]"
         @click.stop="goToProduct"
       >
         Show More

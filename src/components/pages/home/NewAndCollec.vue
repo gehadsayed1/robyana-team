@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col md:flex-row gap-4 mt-10 items-center justify-center py-4 px-4">
+  <div class="flex flex-col md:flex-row gap-4 items-center justify-center py-4 px-5 md:px-16">
     <img :src="image2" alt="Image 1" class="w-full md:w-1/2 h-auto object-cover rounded-lg shadow-md" />
     <img :src="image1" alt="Image 2" class="w-full md:w-1/2 h-auto object-cover rounded-lg shadow-md" />
   </div>

@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "robyana-team"
-  }
+    "default": "robyana-team",
+    "y": "robyana-team"
+  },
+  "targets": {},
+  "etags": {}
 }

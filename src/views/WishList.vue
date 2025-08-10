@@ -1,85 +1,11 @@
-<script setup>
-import { ref, computed } from "vue";
-import img1 from "../assets/skert2.jpg";
-
-// lucide icons
-import { CheckSquare, Square, ChevronDown, Trash2 } from "lucide-vue-next";
-
-const wishlist = ref([
-  {
-    name: "Maxi Long Skirt",
-    image: img1,
-    price: 699,
-    size: "M",
-    selected: true,
-    showSizes: false,
-  },
-  {
-    name: "Striped T-Shirt",
-    image: img1,
-    price: 299,
-    size: "L",
-    selected: false,
-    showSizes: false,
-  },
-  {
-    name: "Denim Jacket",
-    image: img1,
-    price: 899,
-    size: "XL",
-    selected: true,
-    showSizes: false,
-  },
-]);
-
-const sizes = ["S", "M", "L", "XL"];
-
-const promoCode = ref("");
-
-const toggleSelection = (index) => {
-  wishlist.value[index].selected = !wishlist.value[index].selected;
-};
-
-const removeFromWishlist = (index) => {
-  wishlist.value.splice(index, 1);
-};
-
-const toggleSizeDropdown = (index) => {
-  wishlist.value[index].showSizes = !wishlist.value[index].showSizes;
-};
-
-const selectSize = (index, newSize) => {
-  wishlist.value[index].size = newSize;
-  wishlist.value[index].showSizes = false;
-};
-
-const selectedItemsCount = computed(
-  () => wishlist.value.filter((item) => item.selected).length
-);
-
-const subtotal = computed(() =>
-  wishlist.value
-    .filter((item) => item.selected)
-    .reduce((sum, item) => sum + parseFloat(item.price), 0)
-);
-
-const discount = computed(() => subtotal.value * 0.1);
-
-const total = computed(() => subtotal.value - discount.value);
-
-const applyPromoCode = () => {
-  alert("Promo code applied: " + promoCode.value);
-};
-</script>
-
 <template>
-  <v-main class="bg-gray-50">
+  <main class="bg-gray-50">
     <!-- Header -->
     <div class="flex items-center justify-center h-60 bg-white font-bold">
-      <img class="" src="@/assets/wishlist.jpg" alt="" />
+      <img src="@/assets/wishlist.jpg" alt="Wishlist Header" />
     </div>
 
-    <v-container class="grid grid-cols-12 py-10 gap-8">
+    <div class="grid grid-cols-12 max-w-7xl mx-auto px-4 py-10 gap-8">
       <!-- Wishlist Items -->
       <div class="col-span-12 md:col-span-8">
         <div v-if="wishlist.length === 0" class="text-center text-gray-600">
@@ -90,21 +16,10 @@ const applyPromoCode = () => {
           <div
             v-for="(item, index) in wishlist"
             :key="index"
-            class="bg-white rounded py-5 flex justify-between px-4 border-b-1 border-gray-400 relative"
+            class="bg-white rounded-lg py-5 flex justify-between px-4 border-b border-gray-300 relative"
           >
             <div class="flex items-start">
-              <!-- Icon for selection -->
-              <span
-                @click="toggleSelection(index)"
-                class="cursor-pointer mr-4 mt-6"
-              >
-                <i
-                  v-if="item.selected"
-                  class="fas fa-check-square text-primary"
-                ></i>
-                <i v-else class="far fa-square text-primary"></i>
-              </span>
-              <!-- Icon for selection -->
+              <!-- Selection Icon -->
               <span
                 @click="toggleSelection(index)"
                 class="cursor-pointer mr-4 mt-6"
@@ -129,11 +44,8 @@ const applyPromoCode = () => {
                   {{ item.name }}
                 </h2>
 
-                <!-- Size dropdown -->
-
-                <div
-                  class="text-gray-600 mb-2 relative flex items-center gap-4"
-                >
+                <!-- Size Dropdown -->
+                <div class="text-gray-600 mb-2 relative flex items-center gap-4">
                   <p class="text-gray-600">Size:</p>
                   <div class="flex items-center gap-4 cursor-pointer">
                     <p
@@ -169,9 +81,11 @@ const applyPromoCode = () => {
               </div>
             </div>
 
+            <!-- Remove Button -->
             <div class="flex items-end gap-4">
               <div
-                class="border py-3 px-3 cursor-pointer text-gray-500 rounded"
+                class="border py-3 px-3 cursor-pointer text-gray-500 rounded hover:bg-gray-100 transition"
+                @click="removeFromWishlist(index)"
               >
                 <Trash2 size="20" />
               </div>
@@ -183,36 +97,40 @@ const applyPromoCode = () => {
       <!-- Summary Section -->
       <div class="col-span-12 md:col-span-4">
         <div class="bg-white rounded-md shadow-md py-4 px-4">
-          <h2 class="text-xl border-b-1 pb-2 border-gray-400 font-bold mb-4">
+          <h2 class="text-xl border-b pb-2 border-gray-400 font-bold mb-4">
             Summary
           </h2>
-          <label for="promo-code" class="text-gray-700 py-3 text-lg"
-            >Promo Code</label
-          >
-          <div class="mb-4 flex items-center justify-between">
-            <div>
-              <input
-                id="promo-code"
-                type="text"
-                v-model="promoCode"
-                placeholder="Enter promo code"
-                class="aplay-inp w-70"
-              />
-            </div>
-            <span @click="applyPromoCode" class="aplay-but w-20 transition">
-              Apply
-            </span>
-          </div>
-          <hr class="my-4" />
-          <div class="flex justify-between mb-2">
-            <span class="text-gray-600 text-lg"
-              >Subtotal ({{ selectedItemsCount }} items)</span
+
+          <!-- Promo Code -->
+          <label for="promo-code" class="text-gray-700 py-3 text-lg block">
+            Promo Code
+          </label>
+          <div class="mb-4 flex">
+            <input
+              id="promo-code"
+              type="text"
+              v-model="promoCode"
+              placeholder="Enter promo code"
+              class="flex-1 px-3 py-2 border border-green-500 rounded-l-md outline-none text-green-600"
+            />
+            <button
+              @click="applyPromoCode"
+              class="px-4 py-2 border border-green-500 rounded-r-md text-green-600 hover:bg-green-50 transition"
             >
+              Apply
+            </button>
+          </div>
+
+          <hr class="my-4" />
+
+          <!-- Totals -->
+          <div class="flex justify-between mb-2">
+            <span class="text-gray-600 text-lg">
+              Subtotal ({{ selectedItemsCount }} items)
+            </span>
             <!-- <span class="text-gray-800">{{ subtotal }} EGP</span> -->
           </div>
-          <div
-            class="flex justify-between mb-2 border-b-1 border-gray-300 pb-2"
-          >
+          <div class="flex justify-between mb-2 border-b border-gray-300 pb-2">
             <span class="text-green-500">Discount</span>
             <span class="text-green-500">{{ discount }} EGP</span>
           </div>
@@ -220,37 +138,85 @@ const applyPromoCode = () => {
             <span class="text-gray-600">Total PayPal</span>
             <span class="text-gray-800">{{ total }} EGP</span>
           </div>
-          <button class="try-boutton">Try Now</button>
+
+          <!-- Checkout Button -->
+          <button
+            class="w-full py-2 mt-2 bg-primary text-white rounded hover:bg-primary/90 transition"
+          >
+            Try Now
+          </button>
         </div>
       </div>
-    </v-container>
-  </v-main>
+    </div>
+  </main>
 </template>
 
-<style scoped>
-.aplay-inp {
-  padding: 10px;
-  border: 1px solid #4caf50;
-  border-radius: 4px 0px 0px 4px;
-  outline: none;
-  color: #4caf50;
-}
+<script setup>
+import { ref, computed } from "vue";
+import img1 from "../assets/skert2.jpg";
+import { CheckSquare, Square, ChevronDown, Trash2 } from "lucide-vue-next";
 
-.aplay-but {
-  padding: 10px;
-  border: 1px solid #4caf50;
-  border-radius: 0px 4px 4px 0px;
-  color: #4caf50;
-  cursor: pointer;
-}
-.try-boutton {
-  width: 100%;
-  padding: 7px;
-  margin-top: 10px;
-  background-color: var(--color-primary);
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-</style>
+const wishlist = ref([
+  {
+    name: "Maxi Long Skirt",
+    image: img1,
+    price: 699,
+    size: "M",
+    selected: true,
+    showSizes: false,
+  },
+  {
+    name: "Striped T-Shirt",
+    image: img1,
+    price: 299,
+    size: "L",
+    selected: false,
+    showSizes: false,
+  },
+  {
+    name: "Denim Jacket",
+    image: img1,
+    price: 899,
+    size: "XL",
+    selected: true,
+    showSizes: false,
+  },
+]);
+
+const sizes = ["S", "M", "L", "XL"];
+const promoCode = ref("");
+
+const toggleSelection = (index) => {
+  wishlist.value[index].selected = !wishlist.value[index].selected;
+};
+
+const removeFromWishlist = (index) => {
+  wishlist.value.splice(index, 1);
+};
+
+const toggleSizeDropdown = (index) => {
+  wishlist.value[index].showSizes = !wishlist.value[index].showSizes;
+};
+
+const selectSize = (index, newSize) => {
+  wishlist.value[index].size = newSize;
+  wishlist.value[index].showSizes = false;
+};
+
+const selectedItemsCount = computed(
+  () => wishlist.value.filter((item) => item.selected).length
+);
+
+const subtotal = computed(() =>
+  wishlist.value
+    .filter((item) => item.selected)
+    .reduce((sum, item) => sum + parseFloat(item.price), 0)
+);
+
+const discount = computed(() => subtotal.value * 0.1);
+const total = computed(() => subtotal.value - discount.value);
+
+const applyPromoCode = () => {
+  alert("Promo code applied: " + promoCode.value);
+};
+</script>

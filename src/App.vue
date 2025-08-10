@@ -1,9 +1,16 @@
 <template>
-  <v-app app>
-    <Navbar v-if="!route.meta.hideHeaderFooter"  />
-    <router-view />
+  <div class="min-h-screen flex flex-col">
+    <!-- Navbar -->
+    <Navbar v-if="!route.meta.hideHeaderFooter" />
+
+    <!-- Main content -->
+    <main class="flex-1  bg-gray-100">
+      <router-view />
+    </main>
+
+    <!-- Footer -->
     <Footer v-if="!route.meta.hideHeaderFooter" />
-  </v-app>
+  </div>
 </template>
 
 <script setup>
@@ -11,5 +18,5 @@ import Navbar from "./components/pages/Navbar.vue";
 import Footer from "./components/pages/Footer.vue";
 import { useRoute } from "vue-router";
 
-const route = useRoute()
+const route = useRoute();
 </script>
