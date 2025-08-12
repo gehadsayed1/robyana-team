@@ -3,11 +3,11 @@
     <!-- Section Title -->
     <div class="flex justify-between items-center mb-4">
       <h2 class="text-2xl font-meduim">Filters Management</h2>
-      <v-button
+      <button
         class="bg-primary text-white w-30 text-center px-4 py-2 rounded-md hover:bg-blue-600"
       >
         + Add Filter
-      </v-button>
+      </button>
     </div>
 
     <!-- Add New Filter -->
@@ -39,16 +39,16 @@
         </div>
       </div>
       <div class="flex mt-3 justify-center items-center gap-4">
-        <v-button
+        <button
           class="bg-primary text-center w-40 text-white px-4 py-2 rounded-md mr-2 hover:bg-blue-600"
         >
           Create Filter
-        </v-button>
-        <v-button
+        </button>
+        <button
           class="borders text-center w-40 text-gray-700 px-4 py-2 rounded-md hover:bg-gray-300"
         >
           Cancel
-        </v-button>
+        </button>
       </div>
     </div>
 
@@ -79,13 +79,13 @@
                 <ChevronDown :size="28" :stroke-width="3" />
               </div>
             </div>
-            <v-button class="text-white px-3 py-2 rounded-md borders">
+            <button class="text-white px-3 py-2 rounded-md borders">
               <Trash2
                 :size="20"
                 :stroke-width="3"
                 class="text-red-400 hover:text-red-600"
               />
-            </v-button>
+            </button>
           </div>
         </div>
         <div class="mt-2 flex items-center">
@@ -94,7 +94,7 @@
             placeholder="Select Size"
             class="w-full px-3 py-2 borders rounded-lg focus:outline-none focus:border-blue-500"
           />
-          <v-button
+          <button
             class="bg-primary text-white px-3 py-2 rounded-md ml-2 hover:bg-blue-600"
           >
             <Plus :size="25" :stroke-width="3" />

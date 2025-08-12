@@ -65,12 +65,12 @@
           />
         </div>
 
-        <v-button
+        <button
           @click="openModule = true"
           class="bg-primary text-white px-4 py-2 rounded hover:bg-blue-700 ml-auto"
         >
           + Add Member
-        </v-button>
+        </button>
       </div>
     </div>
 

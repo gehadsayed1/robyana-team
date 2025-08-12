@@ -15,11 +15,11 @@
           placeholder="Enter category name"
           class="w-full px-3 py-2 borders rounded-lg focus:outline-none focus:border-blue-500"
         />
-        <v-button
+        <button
           class="ml-2 w-30 text-center bg-primary text-white px-4 py-2 rounded-md hover:bg-blue-600"
         >
           + Add
-        </v-button>
+        </button>
       </div>
     </div>
 

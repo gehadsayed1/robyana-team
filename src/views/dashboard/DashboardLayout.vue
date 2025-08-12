@@ -28,12 +28,12 @@ onMounted(() => {
       </aside>
 
       <!-- Main Content -->
- <v-main class="bg-gray-100 w-[calc(100vh-64px)]  " style="margin-left: 10px; margin-top: 20px;">
-  <router-view v-if="!loading" />
-  <div v-else class="">
-    <v-progress-circular indeterminate color="primary" />
-  </div>
-</v-main>
+        <main class="bg-gray-100 w-[calc(100vh-64px)]" style="margin-left: 10px; margin-top: 20px;">
+          <router-view v-if="!loading" />
+          <div v-else class="flex justify-center items-center h-full">
+            <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
+          </div>
+        </main>
 
     </div>
   </div>

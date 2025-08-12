@@ -240,13 +240,13 @@ const sizes = ref(["XS", "S", "M", "L", "XL"]);
         <div>
           <label class="block text-sm font-medium mb-1">Available Sizes</label>
           <div class="flex gap-5 mt-2">
-            <v-button
+            <button
               v-for="size in sizes"
               :key="size"
-              class="input-costum rounded-lg hover:bg-gray-300"
+              class="input-costum rounded-lg hover:bg-gray-300 px-3 py-2 border border-gray-300"
             >
               {{ size }}
-            </v-button>
+            </button>
           </div>
         </div>
       </div>
@@ -374,11 +374,11 @@ const sizes = ref(["XS", "S", "M", "L", "XL"]);
             placeholder="Enter tag"
             class="w-full input-costum rounded-lg focus:outline-none focus:border-blue-500"
           />
-          <v-button
-            class="bg-primary text-white px-4 py-2 w-60 text-center rounded-md hover:bg-blue-600"
-          >
-            Add Tag
-          </v-button>
+                     <button
+             class="bg-primary text-white px-4 py-2 w-60 text-center rounded-md hover:bg-blue-600"
+           >
+             Add Tag
+           </button>
         </div>
       </div>
 
@@ -399,16 +399,16 @@ const sizes = ref(["XS", "S", "M", "L", "XL"]);
     <div
       class="flex justify-end gap-3 mb-6 py-4 px-3 rounded shadow-md mt-4 bg-white"
     >
-      <v-button
-        class="input-costum w-40 text-center text-gray-700 px-4 py-2 rounded-md mr-2 hover:bg-gray-200"
-      >
-        Cancel
-      </v-button>
-      <v-button
-        class="bg-primary text-white w-40 text-center px-4 py-2 rounded-md hover:bg-blue-600"
-      >
-        Add Product
-      </v-button>
+             <button
+         class="input-costum w-40 text-center text-gray-700 px-4 py-2 rounded-md mr-2 hover:bg-gray-200"
+       >
+         Cancel
+       </button>
+       <button
+         class="bg-primary text-white w-40 text-center px-4 py-2 rounded-md hover:bg-blue-600"
+       >
+         Add Product
+       </button>
     </div>
   </div>
 </template>

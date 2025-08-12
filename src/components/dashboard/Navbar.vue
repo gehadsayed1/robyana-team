@@ -8,7 +8,7 @@ const route = useRoute();
 <template>
   <div class="bg-gray-100 w-vh rounded-lg shadow-md">
     <!-- Row container -->
-    <v-container>
+    <div class="container mx-auto px-4">
       <div class="flex items-center justify-between">
         <!-- Left side: Logo and Admin title -->
         <div class="flex items-center justify-between gap-10">
@@ -48,7 +48,7 @@ const route = useRoute();
           </router-link>
         </div>
       </div>
-    </v-container>
+    </div>
   </div>
 </template>
 

@@ -1,8 +1,8 @@
 <template>
- <v-container>
-   <div class=" p-6 rounded-lg  mx-auto">
+ <div class="container mx-auto ">
+   <div class=" md:p-6 rounded-lg  mx-auto">
     <!-- Title -->
-    <h2 class="text-center text-2xl font-bold mb-6">Size Guide</h2>
+    <h2 class="text-center text-2xl font-bold mb-8 md:mb-6">Size Guide</h2>
 
     
     <!-- Fit Type Section -->
@@ -22,13 +22,13 @@
         </div>
       </div>
 
-      <!-- Range Input -->
+    
       <input
         type="range"
         min="0"
         max="100"
         v-model="fitValue"
-        class="w-full h-2 bg-gray-300 rounded-full appearance-none cursor-pointer"
+        class="w-full h-2  rounded-full appearance-none cursor-pointer"
       />
 
       <!-- Custom Thumb -->
@@ -39,7 +39,7 @@
     </div>
 
     <!-- Tabs -->
-    <div class="flex border-b mb-4">
+    <div class="flex flex-col items-start mb-4 md:block">
       <button
         @click="activeTab = 'product'"
         :class="['py-2 px-4 font-medium', activeTab === 'product' ? 'text-blue-600 border-b-2 border-blue-600' : 'text-gray-600']"
@@ -55,18 +55,18 @@
     </div>
 
     <!-- Table -->
-    <table class="w-full table-auto border-collapse text-sm">
+    <table class="w-full    text-sm">
       <thead class="bg-gray-100">
         <tr>
-          <th class="px-4 py-2 border">US</th>
-          <th class="px-4 py-2 border">Size</th>
-          <th class="px-4 py-2 border">Height</th>
-          <th class="px-4 py-2 border">Bust</th>
-          <th class="px-4 py-2 border">Waist</th>
-          <th class="px-4 py-2 border">Hip</th>
+          <th class=":px-4 py-2 border">US</th>
+          <th class="md:px-4 py-2 border">Size</th>
+          <th class="md:px-4 py-2 border">Height</th>
+          <th class="md:px-4 py-2 border">Bust</th>
+          <th class="md:px-4 py-2 border">Waist</th>
+          <th class="md:px-4 py-2 border">Hip</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody class="text-center">
         <tr
           v-for="size in sizes"
           :key="size.us"
@@ -77,16 +77,16 @@
           ]"
         >
           <td class="px-4 py-2 border">{{ size.us }}</td>
-          <td class="px-4 py-2 border">{{ size.size }}</td>
-          <td class="px-4 py-2 border">{{ size.height }}</td>
-          <td class="px-4 py-2 border">{{ size.bust }}</td>
-          <td class="px-4 py-2 border">{{ size.waist }}</td>
-          <td class="px-4 py-2 border">{{ size.hip }}</td>
+          <td class="md:px-4 py-2 border">{{ size.size }}</td>
+          <td class="md:px-4 py-2 border">{{ size.height }}</td>
+          <td class="md:px-4 py-2 border">{{ size.bust }}</td>
+          <td class="md:px-4 py-2 border">{{ size.waist }}</td>
+          <td class="md:px-4 py-2 border">{{ size.hip }}</td>
         </tr>
       </tbody>
     </table>
   </div>
- </v-container>
+ </div>
 </template>
 
 <script setup>

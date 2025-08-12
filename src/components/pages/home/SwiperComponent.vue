@@ -82,7 +82,6 @@ onBeforeUnmount(() => {
   width: 100%;
   aspect-ratio: 16 / 6;
   max-height: 500px;
-  margin-top: 60px;
   padding-bottom: 40px;
   overflow: hidden;
 }

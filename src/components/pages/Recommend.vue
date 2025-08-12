@@ -1,45 +1,54 @@
 <template>
-  <v-container>
+  <div class="container mx-auto px-4 md:px-16">
     <!-- العنوان -->
-    <v-row class="mb-6 ">
-      <v-col cols="12">
-        <h3 class="text-center text-2xl font-weight-bold">
+    <div class="mb-4 md:mb-6">
+      <div class="w-full">
+        <h3 class="text-center text-xl md:text-2xl font-bold px-2">
           Recommendation For You
         </h3>
-      </v-col>
-    </v-row>
+      </div>
+    </div>
 
-    <v-tabs
-      v-model="tab"
-      background-color="transparent"
-      color="primary"
-      grow
-      density="comfortable"
-      class="mb-6 w-full max-w-4xl mx-auto"
-    >
-      <v-tab v-for="item in tabs" :key="item">{{ item }}</v-tab>
-    </v-tabs>
-
+    <!-- Custom Tabs -->
+    <div class="mb-4 md:mb-6 w-full max-w-4xl mx-auto">
+      <div class="flex border-b border-gray-200 overflow-x-auto scrollbar-hide md:overflow-visible">
+        <button
+          v-for="(item, index) in tabs"
+          :key="item"
+          @click="tab = index"
+          class="flex-shrink-0 py-3 px-4 text-center text-sm font-medium transition-colors duration-200 whitespace-nowrap min-w-[80px] md:min-w-0 md:flex-1"
+          :class="[
+            tab === index
+              ? 'text-blue-600 border-b-2 border-blue-600 bg-blue-50'
+              : 'text-gray-500 hover:text-gray-700 hover:bg-gray-50'
+          ]"
+        >
+          {{ item }}
+        </button>
+      </div>
+    </div>
 
     <swiper
-      class="custom-swiper py-6"
+      class="custom-swiper py-4 md:py-6"
       :modules="modules"
-      :slides-per-view="1.2"
-      :space-between="10"
-      :slides-offset-before="20"
-      :slides-offset-after="20"
+      :slides-per-view="1.1"
+      :space-between="16"
+      :slides-offset-before="16"
+      :slides-offset-after="16"
       navigation
       :breakpoints="swiperBreakpoints"
     >
       <swiper-slide
         v-for="product in products"
         :key="product.id"
-     
+        class="!w-auto"
       >
-        <ProductCard :product="product" />
+        <div class="px-2">
+          <ProductCard :product="product" />
+        </div>
       </swiper-slide>
     </swiper>
-  </v-container>
+  </div>
 </template>
 
 <script setup>
@@ -73,28 +82,36 @@ const products = [
 
 
 const swiperBreakpoints = {
-
   320: {
-    slidesPerView: 1.2,
-    spaceBetween: 12,
+    slidesPerView: 1.1,
+    spaceBetween: 16,
     slidesOffsetBefore: 16,
     slidesOffsetAfter: 16,
   },
   
+  480: {
+    slidesPerView: 1.3,
+    spaceBetween: 20,
+    slidesOffsetBefore: 20,
+    slidesOffsetAfter: 20,
+  },
+  
   640: {
-    slidesPerView: 2.2,
-    spaceBetween: 16,
+    slidesPerView: 1.8,
+    spaceBetween: 24,
     slidesOffsetBefore: 20,
     slidesOffsetAfter: 20,
   },
   
   768: {
-    slidesPerView: 2.5,
-    spaceBetween: 20,
+    slidesPerView: 2.2,
+    spaceBetween: 24,
+    slidesOffsetBefore: 20,
+    slidesOffsetAfter: 20,
   },
  
   1024: {
-    slidesPerView: 3,
+    slidesPerView: 2.8,
     spaceBetween: 24,
     slidesOffsetBefore: 0,
     slidesOffsetAfter: 0,
@@ -103,6 +120,15 @@ const swiperBreakpoints = {
 </script>
 
 <style>
+/* إخفاء scrollbar */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
 
 .swiper-button-next,
 .swiper-button-prev {
@@ -135,18 +161,73 @@ const swiperBreakpoints = {
   right: 10px;
 }
 
-
 .swiper-button-next::after,
 .swiper-button-prev::after {
   font-size: 18px;
   font-weight: bold;
 }
 
-
+/* تحسينات للهاتف المحمول */
 @media (max-width: 640px) {
   .custom-swiper {
     padding-top: 1rem;
     padding-bottom: 1.5rem;
+  }
+  
+  .swiper-button-next,
+  .swiper-button-prev {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .swiper-button-next::after,
+  .swiper-button-prev::after {
+    font-size: 16px;
+  }
+  
+  .swiper-button-prev {
+    left: 5px;
+  }
+  
+  .swiper-button-next {
+    right: 5px;
+  }
+}
+
+/* تحسينات للشاشات الصغيرة جداً */
+@media (max-width: 480px) {
+  .swiper-button-next,
+  .swiper-button-prev {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .swiper-button-next::after,
+  .swiper-button-prev::after {
+    font-size: 14px;
+  }
+  
+  .swiper-button-prev {
+    left: 2px;
+  }
+  
+  .swiper-button-next {
+    right: 2px;
+  }
+}
+
+/* إخفاء الأسهم على الشاشات الصغيرة جداً */
+@media (max-width: 360px) {
+  .swiper-button-next,
+  .swiper-button-prev {
+    display: none;
+  }
+}
+
+/* تحسين التابز في الموبايل */
+@media (max-width: 640px) {
+  .swiper-slide {
+    padding: 0 4px;
   }
 }
 </style>

@@ -39,13 +39,13 @@
     </div>
 
     <div>
-      <v-button
+      <button
         v-if="!isCompletedTab"
         @click="opens = true"
         class="bg-blue-500 cursor-pointer text-white px-4 py-2 rounded hover:bg-blue-600"
       >
         Assign Room
-      </v-button>
+      </button>
 
       <span
         v-else

@@ -1,6 +1,6 @@
 <template>
-  <section class="mb-12 container mx-auto px-4">
-    <h2 class="text-3xl font-bold mt-6 text-center mb-8">Shop By Categories</h2>
+  <section class="mb-12 container mx-auto md:px-16">
+    <h2 class="text-3xl font-bold  text-center mb-8">Shop By Categories</h2>
 
     <!-- Flex for mobile, Grid for desktop -->
     <div class="flex flex-col md:grid md:grid-cols-3 gap-6 text-center">
@@ -10,13 +10,13 @@
         class="flex-1 hover:scale-105 transition-transform duration-300 cursor-pointer"
         @click="goToSlideLink(category)"
       >
-        <!-- الصورة -->
+       
         <img
           :src="category.image"
           :alt="category.title"
           class="rounded-xl w-full h-[300px] md:h-[350px] object-cover shadow-md"
         />
-        <!-- العنوان -->
+        
         <h3 class="text-lg font-medium mt-3">{{ category.title }}</h3>
       </div>
     </div>

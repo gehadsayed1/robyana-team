@@ -2,7 +2,16 @@
   <main class="bg-gray-50">
     <!-- Header -->
     <div class="flex items-center justify-center h-60 bg-white font-bold">
-      <img src="@/assets/wishlist.jpg" alt="Wishlist Header" />
+      <img
+        class="w-full h-full hidden lg:block"
+        src="@/assets/wishlist.jpg"
+        alt="Wishlist Header"
+      />
+      <img
+        class="w-full h-full block lg:hidden"
+        src="@/assets/wishmo.png"
+        alt=""
+      />
     </div>
 
     <div class="grid grid-cols-12 max-w-7xl mx-auto px-4 py-10 gap-8">
@@ -45,7 +54,9 @@
                 </h2>
 
                 <!-- Size Dropdown -->
-                <div class="text-gray-600 mb-2 relative flex items-center gap-4">
+                <div
+                  class="text-gray-600 mb-2 relative flex items-center gap-4"
+                >
                   <p class="text-gray-600">Size:</p>
                   <div class="flex items-center gap-4 cursor-pointer">
                     <p
@@ -84,7 +95,7 @@
             <!-- Remove Button -->
             <div class="flex items-end gap-4">
               <div
-                class="border py-3 px-3 cursor-pointer text-gray-500 rounded hover:bg-gray-100 transition"
+                class="border py-2 px-2 cursor-pointer text-gray-500 rounded-md hover:bg-gray-100 transition"
                 @click="removeFromWishlist(index)"
               >
                 <Trash2 size="20" />

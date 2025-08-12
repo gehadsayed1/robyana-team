@@ -16,6 +16,7 @@ const routes = [
     path: "/login",
     name: "login",
     component: () => import("@/views/Login.vue"),
+    meta: { hideHeaderFooter: true },
   },
   {
     path: "/category",
@@ -36,6 +37,7 @@ const routes = [
     path: "/pupup",
     name: "pupup",
     component: () => import("@/components/global/PupUop.vue"),
+    meta: { hideHeaderFooter: true },
   },
   {
     path: "/dashboard",

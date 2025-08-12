@@ -152,18 +152,18 @@ import { ChevronLeft } from "lucide-vue-next";
 
        
         <div class="flex justify-end">
-          <v-button
+          <button
             type="button"
             class="bg-white py-2 w-40 text-center borders border-gray-300 rounded-lg shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
           >
             Cancel
-          </v-button>
-          <v-button
+          </button>
+          <button
             type="submit"
             class="ml-3 inline-flex justify-center py-2 w-40 text-center border border-transparent shadow-sm text-sm font-medium rounded-lg text-white bg-primary hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
           >
             Add Member
-          </v-button>
+          </button>
         </div>
       </form>
     </div>

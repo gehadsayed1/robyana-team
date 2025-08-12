@@ -74,14 +74,15 @@ const products = [
 </script>
 
 <template>
-  <div class="container mx-auto px-4">
+  <div class="container mx-auto px-4 pt-10">
     <!-- Sections -->
-    <Recommend />
+ 
     <ShopByCategories />
+    <Recommend />
 
     <!-- On Sale Section -->
-    <div class="mt-8 mb-12">
-      <h2 class="text-center text-xl font-bold mb-6">On Sale</h2>
+    <div class="mt-8 mb-12 md:px-16">
+      <h2 class="text-center text-2xl font-bold mb-6">On Sale</h2>
 
       <!-- Product Grid -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">

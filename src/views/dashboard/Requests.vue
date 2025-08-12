@@ -7,7 +7,7 @@
 
     <!-- Tabs -->
     <div class="flex items-center mt-6">
-      <v-button
+      <button
         @click="activeTab = 'new'"
         :class="[
           'flex items-center  gap-2 px-15 py-4  shadow font-medium',
@@ -21,8 +21,8 @@
         <span class="bg-white text-blue-600 rounded-full px-2 text-sm">{{
           newRequests.length
         }}</span>
-      </v-button>
-      <v-button
+      </button>
+      <button
         @click="activeTab = 'completed'"
         :class="[
           'flex items-center  gap-2 px-15 py-4 shadow font-medium',
@@ -36,7 +36,7 @@
         <span class="bg-white text-green-600 rounded-full px-2 text-sm">{{
           completedRequests.length
         }}</span>
-      </v-button>
+      </button>
 
   <!-- Tools section inside the tabs -->
 <div class="flex items-center gap-2 ml-auto">

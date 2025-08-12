@@ -1,54 +1,55 @@
 <template>
-  <v-card
+  <div
     @click="goToProduct"
-    class="px-4 flex flex-col justify-between cursor-pointer"
-    :class="{ 'mx-auto': $vuetify.display.mdAndUp }"
-    :elevation="hovered ? 10 : 2"
-    :height="$vuetify.display.xs ? 390 : 390"
-    :width="$vuetify.display.xs ? '90%' : $vuetify.display.sm ? '230' : '250'"
+    class="px-4 py-2 flex flex-col justify-between cursor-pointer bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 border border-gray-200"
+    :class="{ 'mx-auto': true }"
+    :style="{ height: '390px', width: '250px' }"
     @mouseenter="hovered = true"
     @mouseleave="hovered = false"
   >
     <!-- New Collection + Heart -->
-    <div class="flex justify-between items-start mb-2">
-      <v-chip color="grey-lighten-1" size="small">New Collection</v-chip>
-      <v-btn
-        icon
-        size="small"
-        color="grey-darken-2"
-        variant="text"
+    <div class="flex justify-between items-start mb-2 pt-2">
+      <span class="bg-gray-200 text-gray-700 text-xs px-3 py-1 rounded-full font-medium">New Collection</span>
+      <button
+        class="p-1 text-gray-600 hover:text-gray-800 transition-colors"
         @click.stop="toggleWishlist"
       >
-        <Heart :class="{ 'text-red bg-red-500': isWishlisted }" />
-      </v-btn>
+        <Heart :class="{ 'text-red-500 fill-current': isWishlisted, 'text-gray-600': !isWishlisted }" class="w-5 h-5" />
+      </button>
     </div>
 
-    <v-img :src="product.image" height="180" class="rounded-xl mb-4" />
-    <div class="text-caption text-grey mb-1">{{ product.category }}</div>
-    <div class="font-weight-medium text-body-1 mb-1 text-truncate">
-      {{ product.name }}
-    </div>
-    <div class="mb-4">
-      <span class="font-weight-bold text-body-1">{{ product.price }} EGP</span>
-      <span
-        v-if="product.oldPrice"
-        class="text-grey ms-2 text-decoration-line-through text-caption"
-      >
-        {{ product.oldPrice }} EGP
-      </span>
+    <!-- Product Image -->
+    <div class="flex-1 flex items-center justify-center mb-3">
+      <img :src="product.image" class="w-full h-44 object-cover rounded-xl" />
     </div>
 
-    <div class="flex justify-center">
-      <v-btn
-        color="primary"
-        variant="flat"
-        class="w-[85%]"
+    <!-- Product Details -->
+    <div class="mb-3">
+      <div class="text-xs text-gray-500 mb-1">{{ product.category }}</div>
+      <div class="font-medium text-sm mb-2 text-gray-800 truncate leading-tight">
+        {{ product.name }}
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="font-bold text-sm text-gray-900">{{ product.price }} EGP</span>
+        <span
+          v-if="product.oldPrice"
+          class="text-gray-400 line-through text-xs"
+        >
+          {{ product.oldPrice }} EGP
+        </span>
+      </div>
+    </div>
+
+    <!-- Show More Button -->
+    <div class="flex justify-center pb-3">
+      <button
+        class="bg-primary text-white px-4 py-2 rounded-md hover:bg-blue-300 transition-colors w-full text-sm font-medium"
         @click.stop="goToProduct"
       >
         Show More
-      </v-btn>
+      </button>
     </div>
-  </v-card>
+  </div>
 </template>
 
 <script setup>
@@ -83,10 +84,5 @@ const toggleWishlist = () => {
 <style scoped>
 .cursor-pointer {
   transition: all 0.3s ease;
-}
-
-.v-btn {
-  text-transform: none;
-  letter-spacing: 0;
 }
 </style>

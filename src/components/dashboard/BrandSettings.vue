@@ -93,16 +93,16 @@
     </div>
   </div>
       <div class="flex mt-3 justify-end items-center gap-4">
-        <v-button
+        <button
           class="borders text-center w-40 text-gray-700 px-4 py-2 rounded-md hover:bg-gray-300"
         >
           Cancel
-        </v-button>
-        <v-button
+        </button>
+        <button
           class="bg-primary text-center w-40 text-white px-4 py-2 rounded-md mr-2 hover:bg-blue-600"
         >
         Save Changes
-        </v-button>
+        </button>
       </div>
     </div>
   </div>

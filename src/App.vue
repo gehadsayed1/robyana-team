@@ -4,7 +4,7 @@
     <Navbar v-if="!route.meta.hideHeaderFooter" />
 
     <!-- Main content -->
-    <main class="flex-1  bg-gray-100">
+    <main class="flex-1 bg-gray-100" style="margin-top: 64px;">
       <router-view />
     </main>
 
