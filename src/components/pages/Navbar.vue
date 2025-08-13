@@ -189,7 +189,7 @@ const logout = () => {
 
 const navLinks = [
   { label: "Home", to: "/" },
-  { label: "Categories", to: "/categories" },
+  { label: "Categories", to: "/category" },
   { label: "Mix & Match", to: "/product-details" },
 ];
 

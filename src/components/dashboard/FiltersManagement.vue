@@ -98,7 +98,7 @@
             class="bg-primary text-white px-3 py-2 rounded-md ml-2 hover:bg-blue-600"
           >
             <Plus :size="25" :stroke-width="3" />
-          </v-button>
+          </button>
         </div>
         <div class="mt-3 flex flex-wrap gap-2">
           <span
@@ -135,13 +135,13 @@
                 <ChevronDown :size="28" :stroke-width="3" />
               </div>
             </div>
-            <v-button class="text-white px-3 py-2 rounded-md borders">
+            <button class="text-white px-3 py-2 rounded-md borders">
               <Trash2
                 :size="20"
                 :stroke-width="3"
                 class="text-red-400 hover:text-red-600"
               />
-            </v-button>
+            </button>
           </div>
         </div>
         <div class="mt-2 flex items-center">
@@ -150,11 +150,11 @@
             placeholder="Select type"
             class="w-full px-3 py-2 borders rounded-lg focus:outline-none focus:border-blue-500"
           />
-          <v-button
+          <button
             class="bg-primary text-white px-3 py-2 rounded-md ml-2 hover:bg-blue-600"
           >
             <Plus :size="25" :stroke-width="3" />
-          </v-button>
+          </button>
         </div>
         <div class="mt-3 flex flex-wrap gap-2">
           <span
@@ -193,13 +193,13 @@
                 <ChevronDown :size="28" :stroke-width="3" />
               </div>
             </div>
-            <v-button class="text-white px-3 py-2 rounded-md borders">
+            <button class="text-white px-3 py-2 rounded-md borders">
               <Trash2
                 :size="20"
                 :stroke-width="3"
                 class="text-red-400 hover:text-red-600"
               />
-            </v-button>
+            </button>
           </div>
         </div>
         <div class="mt-2 flex items-center">
@@ -208,11 +208,11 @@
             placeholder="Select Color"
             class="w-full px-3 py-2 borders rounded-lg focus:outline-none focus:border-blue-500"
           />
-          <v-button
+          <button
             class="bg-primary text-white px-3 py-2 rounded-md ml-2 hover:bg-blue-600"
           >
             <Plus :size="25" :stroke-width="3" />
-          </v-button>
+          </button>
         </div>
         <div class="mt-3 flex flex-wrap gap-2">
           <span
@@ -252,13 +252,13 @@
                 <ChevronDown :size="28" :stroke-width="3" />
               </div>
             </div>
-            <v-button class="text-white px-3 py-2 rounded-md borders">
+            <button class="text-white px-3 py-2 rounded-md borders">
               <Trash2
                 :size="20"
                 :stroke-width="3"
                 class="text-red-400 hover:text-red-600"
               />
-            </v-button>
+            </button>
           </div>
         </div>
         <div class="mt-2 flex items-center">
@@ -267,11 +267,11 @@
             placeholder="Select style"
             class="w-full px-3 py-2 borders rounded-lg focus:outline-none focus:border-blue-500"
           />
-          <v-button
+          <button
             class="bg-primary text-white px-3 py-2 rounded-md ml-2 hover:bg-blue-600"
           >
             <Plus :size="25" :stroke-width="3" />
-          </v-button>
+          </button>
         </div>
         <div class="mt-3 flex flex-wrap gap-2">
           <span
@@ -308,13 +308,13 @@
                 <ChevronDown :size="28" :stroke-width="3" />
               </div>
             </div>
-            <v-button class="text-white px-3 py-2 rounded-md borders">
+            <button class="text-white px-3 py-2 rounded-md borders">
               <Trash2
                 :size="20"
                 :stroke-width="3"
                 class="text-red-400 hover:text-red-600"
               />
-            </v-button>
+            </button>
           </div>
         </div>
         <div class="mt-2 flex items-center">
@@ -323,11 +323,11 @@
             placeholder="Select price"
             class="w-full px-3 py-2 borders rounded-lg focus:outline-none focus:border-blue-500"
           />
-          <v-button
+          <button
             class="bg-primary text-white px-3 py-2 rounded-md ml-2 hover:bg-blue-600"
           >
             <Plus :size="25" :stroke-width="3" />
-          </v-button>
+          </button>
         </div>
         <div class="mt-3 flex flex-wrap gap-2">
           <span
@@ -364,13 +364,13 @@
                 <ChevronDown :size="28" :stroke-width="3" />
               </div>
             </div>
-            <v-button class="text-white px-3 py-2 rounded-md borders">
+            <button class="text-white px-3 py-2 rounded-md borders">
               <Trash2
                 :size="20"
                 :stroke-width="3"
                 class="text-red-400 hover:text-red-600"
               />
-            </v-button>
+            </button>
           </div>
         </div>
         <div class="mt-2 flex items-center">
@@ -379,11 +379,11 @@
             placeholder="Select promotion"
             class="w-full px-3 py-2 borders rounded-lg focus:outline-none focus:border-blue-500"
           />
-          <v-button
+          <button
             class="bg-primary text-white px-3 py-2 rounded-md ml-2 hover:bg-blue-600"
           >
             <Plus :size="25" :stroke-width="3" />
-          </v-button>
+          </button>
         </div>
         <div class="mt-3 flex flex-wrap gap-2">
           <span
@@ -398,16 +398,16 @@
       </div>
 
       <div class="flex mt-3 justify-end items-center gap-4">
-        <v-button
+        <button
           class="borders text-center w-40 text-gray-700 px-4 py-2 rounded-md hover:bg-gray-300"
         >
           Cancel
-        </v-button>
-        <v-button
+        </button>
+        <button
           class="bg-primary text-center w-40 text-white px-4 py-2 rounded-md mr-2 hover:bg-blue-600"
         >
           Create Filters
-        </v-button>
+        </button>
       </div>
     </div>
   </div>
