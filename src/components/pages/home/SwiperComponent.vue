@@ -123,6 +123,22 @@ onBeforeUnmount(() => {
 
   box-shadow: 0 0 8px rgba(59, 130, 246, 0.4);
 }
+/* في الوضع العادي (شاشات كبيرة) نخليها cover */
+.swiper-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0.5rem;
+}
+
+/* على الموبايل نخليها contain عشان الصورة كاملة تظهر */
+@media (max-width: 640px) {
+  .swiper-slide img {
+    object-fit: contain;
+    background-color: #000; /* لو حابب يكون فيه خلفية ورا الصورة */
+  }
+}
+
 
 /* Responsive Adjustments */
 @media (max-width: 640px) {
