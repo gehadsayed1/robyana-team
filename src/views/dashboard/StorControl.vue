@@ -18,7 +18,7 @@ const currentTab = ref(tabs[0])
 </script>
 
 <template>
-  <div class="py-4 px-8">
+  <div class=" px-8">
     <h5 class="text-primary text-3xl">Store Control Center</h5>
     <p class="text-gray-500 mt-1">Manage your store categories, filters, and branding settings</p>
 

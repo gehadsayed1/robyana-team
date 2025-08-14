@@ -1,5 +1,5 @@
 <template>
-  <div class="py-6 px-6 bg-gray-100 min-h-screen">
+  <div class=" px-6 bg-gray-100 min-h-screen">
     <h1 class="text-3xl font-simebold text-primary">Fit Room Requests</h1>
     <p class="text-gray-500 mt-1">
       Manage customer fitting room requests and deliveries

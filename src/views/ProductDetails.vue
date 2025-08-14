@@ -30,7 +30,7 @@
           <!-- Thumbnails Swiper -->
           <div class="mt-4 lg:mt-5">
             <swiper
-              class="py-6 lg:py-10"
+              class="thumbnails-swiper py-6 lg:py-10"
               :modules="[Navigation]"
               :slides-per-view="3"
               :space-between="8"
@@ -63,9 +63,6 @@
 
         <!-- Product Details -->
         <div class="w-full lg:w-3/5">
-         
-
-      
           <div class="hidden md:block lg:flex items-center justify-between py-4">
             <h2 class="text-xl font-bold text-gray-700">Women</h2>
             <p class="text-md text-gray-400">New Collection</p>
@@ -128,15 +125,15 @@
           </div>
 
           <!-- Action Buttons - Mobile: Stacked, Desktop: Side by side -->
-          <div class="py-6  flex  justify-center  gap-3 ">
+          <div class="py-6 flex flex-col sm:flex-row justify-center gap-3">
             <button
               @click="$router.push({ name: 'wishlist' })"
-              class="bg-blue-500 w-60 tracking-widest text-white px-4 lg:px-6 py-3 md:py-2 rounded hover:bg-blue-600 transition-colors text-sm lg:text-base"
+              class="bg-blue-500 w-full sm:w-60 tracking-widest text-white px-4 lg:px-6 py-3 md:py-2 rounded hover:bg-blue-600 transition-colors text-sm lg:text-base"
             >
               Add to Wishlist
             </button>
             <button
-              class="border w-60  border-blue-500 bg-white text-black px-4 md:px-6 py-3 lg:py-2 rounded hover:bg-blue-100 transition-colors text-sm lg:text-base"
+              class="border w-full sm:w-60 border-blue-500 bg-white text-black px-4 md:px-6 py-3 lg:py-2 rounded hover:bg-blue-100 transition-colors text-sm lg:text-base"
             >
               Mix & Match
             </button>
@@ -153,7 +150,7 @@
     </div>
 
     <!-- Recommendations -->
-    <div class=" md:mt-3 py-5 bg-gray-100">
+    <div class="md:mt-3 py-5 bg-gray-100">
       <Recommend />
     </div>
   </main>
@@ -195,3 +192,35 @@ const selectedSize = ref(product.sizes[4]);
 const selectedColor = ref(product.colors[0].name);
 const mainImage = ref(product.image);
 </script>
+
+<style scoped>
+/* تخصيص الـ Swiper للصور المصغرة فقط */
+.thumbnails-swiper .swiper-button-next,
+.thumbnails-swiper .swiper-button-prev {
+  color: #000;
+  width: 30px;
+  height: 30px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.thumbnails-swiper .swiper-button-next::after,
+.thumbnails-swiper .swiper-button-prev::after {
+  font-size: 14px;
+}
+
+
+@media (max-width: 640px) {
+  .thumbnails-swiper .swiper-button-next,
+  .thumbnails-swiper .swiper-button-prev {
+    width: 25px;
+    height: 25px;
+  }
+  
+  .thumbnails-swiper .swiper-button-next::after,
+  .thumbnails-swiper .swiper-button-prev::after {
+    font-size: 12px;
+  }
+}
+</style>

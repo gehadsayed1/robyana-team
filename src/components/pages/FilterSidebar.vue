@@ -1,5 +1,5 @@
 <template>
-  <div class="w-74 h-fit bg-gray-50 py-10 px-10 shadow-r-lg">
+  <div class="w-74 h-fit bg-gray-50 md:py-10 px-10 shadow-r-lg">
     <h2 class="font-bold text-3xl pb-3 mb-3 border-b border-gray-400">
       Filter Options
     </h2>

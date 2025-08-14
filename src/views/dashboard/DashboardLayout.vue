@@ -14,27 +14,26 @@ onMounted(() => {
 
 <template>
   <div class="min-h-screen bg-gray-100">
-    <!-- Navbar ثابت -->
+  
     <div class="fixed top-0 left-0 right-0 z-50 h-16 bg-white shadow">
       <Navbar />
     </div>
 
     <!-- Layout: Sidebar + Content -->
-    <div class="flex pt-16"> <!-- تعويض ارتفاع الهيدر -->
-      
-      <!-- Sidebar ثابت بالنسبة للصفحة -->
-      <aside class="w-64 h-[calc(100vh-64px)] bg-white shadow overflow-y-auto">
-        <Sidebar />
-      </aside>
+   <div class="flex ">
+  <!-- Sidebar -->
+  <aside class="w-64 h-[calc(100vh-64px)] bg-white shadow overflow-y-auto">
+    <Sidebar />
+  </aside>
 
-      <!-- Main Content -->
-        <main class="bg-gray-100 w-[calc(100vh-64px)]" style="margin-left: 10px; margin-top: 20px;">
-          <router-view v-if="!loading" />
-          <div v-else class="flex justify-center items-center h-full">
-            <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
-          </div>
-        </main>
-
+  <!-- Main Content -->
+  <main class="flex-1 bg-gray-100 ml-2 mt-5 p-4">
+    <router-view v-if="!loading" />
+    <div v-else class="flex justify-center items-center h-full">
+      <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
     </div>
+  </main>
+</div>
+
   </div>
 </template>

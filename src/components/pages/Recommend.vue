@@ -1,5 +1,5 @@
 <template>
-  <div class="container mx-auto px-4 md:px-16">
+  <div class="container mx-auto px-2 md:px-16">
     <!-- العنوان -->
     <div class="mb-4 md:mb-6">
       <div class="w-full">
@@ -31,21 +31,20 @@
     <swiper
       class="custom-swiper py-4 md:py-6"
       :modules="modules"
-      :slides-per-view="1.1"
-      :space-between="16"
-      :slides-offset-before="16"
-      :slides-offset-after="16"
+      :slides-per-view="1.2"
+      :space-between="12"
+      :slides-offset-before="8"
+      :slides-offset-after="8"
       navigation
       :breakpoints="swiperBreakpoints"
     >
       <swiper-slide
         v-for="product in products"
         :key="product.id"
-        class="!w-auto"
+        class="!h-auto"
       >
-        <div class="px-2">
-          <ProductCard :product="product" />
-        </div>
+        <!-- إزالة الـ padding الإضافي -->
+        <ProductCard :product="product" class="h-full" />
       </swiper-slide>
     </swiper>
   </div>
@@ -80,38 +79,50 @@ const products = [
   { id: 5, image: skirt, name: "Maxi Long Skirts", category: "Women", price: 699, oldPrice: 1200 },
 ];
 
-
 const swiperBreakpoints = {
+  // موبايل صغير جداً
   320: {
-    slidesPerView: 1.1,
+    slidesPerView: 1.2,
+    spaceBetween: 12,
+    slidesOffsetBefore: 8,
+    slidesOffsetAfter: 8,
+  },
+  
+  // موبايل متوسط
+  480: {
+    slidesPerView: 1.4,
     spaceBetween: 16,
     slidesOffsetBefore: 16,
     slidesOffsetAfter: 16,
   },
   
-  480: {
-    slidesPerView: 1.3,
-    spaceBetween: 20,
-    slidesOffsetBefore: 20,
-    slidesOffsetAfter: 20,
-  },
-  
+  // موبايل كبير/تابلت صغير
   640: {
-    slidesPerView: 1.8,
-    spaceBetween: 24,
-    slidesOffsetBefore: 20,
-    slidesOffsetAfter: 20,
+    slidesPerView: 2,
+    spaceBetween: 20,
+    slidesOffsetBefore: 16,
+    slidesOffsetAfter: 16,
   },
   
+  // تابلت
   768: {
-    slidesPerView: 2.2,
+    slidesPerView: 2.5,
     spaceBetween: 24,
     slidesOffsetBefore: 20,
     slidesOffsetAfter: 20,
   },
  
+  // ديسكتوب
   1024: {
-    slidesPerView: 2.8,
+    slidesPerView: 3,
+    spaceBetween: 24,
+    slidesOffsetBefore: 0,
+    slidesOffsetAfter: 0,
+  },
+  
+  // شاشات كبيرة
+  1280: {
+    slidesPerView: 4,
     spaceBetween: 24,
     slidesOffsetBefore: 0,
     slidesOffsetAfter: 0,
@@ -128,6 +139,21 @@ const swiperBreakpoints = {
 
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
+}
+
+/* تأكد من أن الـ slide يأخذ الارتفاع المناسب */
+.swiper-slide {
+  height: auto !important;
+  display: flex !important;
+  flex-direction: column;
+}
+
+/* تأكد من أن الكارد يملأ الـ slide */
+.swiper-slide .product-card,
+.swiper-slide > div {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .swiper-button-next,
@@ -224,10 +250,10 @@ const swiperBreakpoints = {
   }
 }
 
-/* تحسين التابز في الموبايل */
+/* إزالة الـ padding الإضافي من الـ slides */
 @media (max-width: 640px) {
   .swiper-slide {
-    padding: 0 4px;
+    padding: 0;
   }
 }
 </style>

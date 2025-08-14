@@ -6,7 +6,7 @@ const route = useRoute();
 </script>
 
 <template>
-  <div class="bg-gray-100 w-vh rounded-lg shadow-md">
+  <div class="bg-gray-100 w-vh h-full flex justify-center items-center rounded-lg shadow-md">
     <!-- Row container -->
     <div class="container mx-auto px-4">
       <div class="flex items-center justify-between">

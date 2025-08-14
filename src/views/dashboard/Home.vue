@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-gray-100 shadow-md px-6 py-6">
+  <div class="bg-gray-100  px-6 ">
     <!-- Dashboard Overview -->
     <div class="mb-4">
       <h2 class="text-3xl text-primary font-meduim mb-2">Dashboard Overview</h2>

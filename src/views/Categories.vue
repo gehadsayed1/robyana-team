@@ -85,7 +85,7 @@ const products = [
       <h2 class="text-center text-2xl font-bold mb-6">On Sale</h2>
 
       <!-- Product Grid -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="grid grid-cols-1 px-2 md:px-0 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         <div
           v-for="product in products"
           :key="product.id"

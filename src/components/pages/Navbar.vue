@@ -84,7 +84,7 @@
       <div class="mt-3">
         <router-link
           to="/"
-          class="text-gray-700 text-lg hover:text-primary"
+          class="text-gray-700 text-lg hover:text-primary block mb-3"
           :class="{ 'text-gray-900 font-bold': route.path === '/' }"
           @click="closeMenu"
         >
@@ -105,7 +105,7 @@
               v-for="(category, i) in categories"
               :key="i"
               :to="category.to"
-              class="text-gray-500 text-sm hover:text-primary ml-4"
+              class="text-gray-500 text-sm hover:text-primary ml-4 block py-1"
               @click="closeMenu"
             >
               {{ category.label }}
@@ -116,7 +116,7 @@
         <div class="mt-3">
           <router-link
             to="/product-details"
-            class="text-gray-700 text-lg y hover:text-primary"
+            class="text-gray-700 text-lg hover:text-primary block"
             :class="{
               'text-gray-900 font-bold': route.path === '/product-details',
             }"
@@ -127,12 +127,12 @@
         </div>
       </div>
 
-      <button
-        class="mt-auto border border-primary text-primary px-4 py-1 rounded w-full"
-        @click="logout"
-      >
-        Logout
-      </button>
+  <button
+  class="mt-auto border border-primary text-primary px-4 py-1 rounded w-full"
+  @click="showPopup = true"
+>
+  Logout
+</button>
 
       <button @click="closeMenu" class="absolute top-4 left-4 text-gray-800">
         <X class="w-6 h-6" />
@@ -147,6 +147,8 @@
       @click="closeMenu"
     ></div>
   </transition>
+
+<PupUop v-if="showPopup" @close="showPopup = false" />
 </template>
 
 <script setup>
@@ -161,11 +163,13 @@ import {
 } from "lucide-vue-next";
 import { useRoute } from "vue-router";
 import logo from "@/assets/logo.png";
+import PupUop from "../global/PupUop.vue";
 
 const route = useRoute();
 const isMenuOpen = ref(false);
 const showSearch = ref(false);
 const showCategories = ref(false);
+const showPopup = ref(false); // للتحكم في ظهور البوب أب
 
 const toggleMenu = () => {
   isMenuOpen.value = !isMenuOpen.value;
@@ -183,8 +187,15 @@ const toggleCategories = () => {
   showCategories.value = !showCategories.value;
 };
 
+// بدل ما نعمل لوج آوت مباشرة، نفتح البوب أب
 const logout = () => {
+  showPopup.value = true;
+};
+
+// لو عايزة تنفذي اللوج آوت فعلياً بعد الموافقة في البوب أب
+const confirmLogout = () => {
   console.log("Logging out...");
+  showPopup.value = false;
 };
 
 const navLinks = [
@@ -194,11 +205,12 @@ const navLinks = [
 ];
 
 const categories = [
-  { label: "Category 1", to: "/categories/1" },
-  { label: "Category 2", to: "/categories/2" },
-  { label: "Category 3", to: "/categories/3" },
+  { label: "Category 1", to: "/category" },
+  { label: "Category 2", to: "/category" },
+  { label: "Category 3", to: "/category" },
 ];
 </script>
+
 
 <style scoped>
 .slide-right-enter-active,

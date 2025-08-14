@@ -1,6 +1,6 @@
 <!-- Settings.vue -->
 <template>
-  <div class="bg-gray-100 shadow-md px-6 py-6">
+  <div class="bg-gray-100  px-6 ">
     <!-- Header -->
     <div class="mb-8">
       <h1 class="text-3xl text-primary font-meduim mb-2">

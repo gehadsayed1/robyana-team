@@ -36,7 +36,7 @@
         <!-- Mobile Filter Sidebar - Overlay -->
         <div
           v-if="showMobileFilter"
-          class="fixed inset-0 bg-black bg-opacity-50 z-50 lg:hidden"
+          class="fixed inset-0 bg-[rgba(0,0,0,0.5)] bg-opacity-50 z-50 lg:hidden"
           @click="closeMobileFilter"
         ></div>
         
@@ -123,7 +123,7 @@
         <div>
           <div class=" ">
             <div
-              class="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3"
+              class="grid px-5 md:px-8 gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3"
             >
               <div
                 v-for="product in products"
@@ -153,7 +153,7 @@
 import FilterSidebar from "@/components/pages/FilterSidebar.vue";
 import ProductCard from "@/components/pages/ProductCard.vue";
 import Pagination from "@/components/global/Pagination.vue";
-import skirt from "@/assets/skirt.jpg";
+import skirt from "@/assets/skert1.jpg";
 import { ref } from "vue";
 import { Funnel } from "lucide-vue-next";
 
