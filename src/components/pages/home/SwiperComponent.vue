@@ -108,8 +108,8 @@ onBeforeUnmount(() => {
 }
 
 .swiper-pagination-bullet {
-  width: 18px;
-  height: 18px;
+  width: 13px;
+  height: 13px;
   background-color: #7e7e7e;
   border-radius: 50%;
   opacity: 1;
@@ -117,13 +117,13 @@ onBeforeUnmount(() => {
   transition: all 0.3s ease;
 }
 
-/* Active Bullet */
+
 .swiper-pagination-bullet-active {
   background-color: var(--color-primary);
 
   box-shadow: 0 0 8px rgba(59, 130, 246, 0.4);
 }
-/* في الوضع العادي (شاشات كبيرة) نخليها cover */
+
 .swiper-slide img {
   width: 100%;
   height: 100%;
@@ -131,11 +131,11 @@ onBeforeUnmount(() => {
   border-radius: 0.5rem;
 }
 
-/* على الموبايل نخليها contain عشان الصورة كاملة تظهر */
+
 @media (max-width: 640px) {
   .swiper-slide img {
     object-fit: contain;
-    background-color: #000; /* لو حابب يكون فيه خلفية ورا الصورة */
+    background-color: #000;
   }
 }
 

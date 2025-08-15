@@ -25,20 +25,15 @@
           <div
             v-for="(item, index) in wishlist"
             :key="index"
-            class="bg-white rounded-lg py-5 flex justify-between px-4 border-b border-gray-300 relative"
+            class="bg-white shadow-md py-5 flex justify-between px-4 border-b border-gray-300 relative first:rounded-t-lg last:rounded-b-lg last:border-b-0"
           >
             <div class="flex items-start">
-              <!-- Selection Icon -->
-              <span
-                @click="toggleSelection(index)"
-                class="cursor-pointer mr-4 mt-6"
-              >
-                <CheckSquare
-                  v-if="item.selected"
-                  class="text-primary w-6 h-6"
-                />
-                <Square v-else class="text-primary w-6 h-6" />
-              </span>
+              <input
+                type="checkbox"
+                :checked="item.selected"
+                @change="toggleSelection(index)"
+                class="w-4 h-4 rounded focus:ring-0 checked:bg-primary checked:border-primary"
+              />
 
               <!-- Product Image -->
               <img
@@ -71,21 +66,22 @@
                   </div>
 
                   <!-- Dropdown -->
-                  <div
-                    v-if="item.showSizes"
-                    class="absolute z-10 bg-white border border-gray-300 mt-12 left-20 rounded shadow-md"
-                  >
-                    <ul>
-                      <li
-                        v-for="size in sizes"
-                        :key="size"
-                        @click="selectSize(index, size)"
-                        class="px-4 py-2 hover:bg-blue-100 cursor-pointer"
-                      >
-                        {{ size }}
-                      </li>
-                    </ul>
-                  </div>
+               <!-- Dropdown -->
+<div
+  v-if="item.showSizes"
+  class="absolute z-20 bg-white border border-gray-300 mt-1 top-3 left-30 w-15 rounded-md shadow-lg overflow-hidden"
+>
+  <ul class="py-1">
+    <li
+      v-for="size in sizes"
+      :key="size"
+      @click="selectSize(index, size)"
+      class="px-2 py-2 text-gray-700 hover:bg-blue-100 hover:text-blue-800 cursor-pointer text-sm transition-colors text-center"
+    >
+      {{ size }}
+    </li>
+  </ul>
+</div>
                 </div>
 
                 <p class="text-gray-600">{{ item.price }} EGP</p>
@@ -146,7 +142,7 @@
             <span class="text-green-500">{{ discount }} EGP</span>
           </div>
           <div class="flex justify-between py-5 text-xl font-semibold">
-            <span class="text-gray-600">Total PayPal</span>
+            <span class="text-gray-600">Total</span>
             <span class="text-gray-800">{{ total }} EGP</span>
           </div>
 

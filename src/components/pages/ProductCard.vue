@@ -1,49 +1,56 @@
 <template>
   <div
     @click="goToProduct"
-    class="w-full h-full flex flex-col justify-between bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 border border-gray-200 cursor-pointer
-           p-3 sm:p-4 
-           min-h-[320px] sm:min-h-[360px] md:min-h-[400px] lg:min-h-[490px]"
+    class="w-full h-full flex flex-col justify-between bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 border border-gray-200 cursor-pointer p-3 sm:p-4 min-h-[320px] sm:min-h-[360px] md:min-h-[400px] lg:min-h-[490px]"
     @mouseenter="hovered = true"
     @mouseleave="hovered = false"
   >
     <!-- New Collection + Heart -->
     <div class="flex justify-between items-start mb-2 flex-shrink-0">
-      <span class="bg-gray-200 text-gray-700 text-xs px-2 py-1 sm:px-3 rounded-full font-medium">
+      <span
+        class="bg-gray-200 text-gray-700 text-xs px-2 py-1 sm:px-3 rounded-full font-medium"
+      >
         New Collection
       </span>
       <button
         class="p-1 text-gray-600 hover:text-gray-800 transition-colors flex-shrink-0"
         @click.stop="toggleWishlist"
       >
-        <Heart 
-          :class="{ 'text-red-500 fill-current': isWishlisted, 'text-gray-600': !isWishlisted }" 
-          class="w-4 h-4 sm:w-5 sm:h-5" 
+        <Heart
+          :class="{
+            'text-red-500 fill-current': isWishlisted,
+            'text-gray-600': !isWishlisted,
+          }"
+          class="w-4 h-4 sm:w-5 sm:h-5"
         />
       </button>
     </div>
 
     <!-- Product Image -->
-    <div class="flex-1 mb-3 rounded-lg overflow-hidden bg-gray-50 
-                min-h-[160px] max-h-[160px] 
-                sm:min-h-[180px] sm:max-h-[180px] 
-                md:min-h-[200px] md:max-h-[200px] 
-                lg:min-h-[220px] lg:max-h-[220px]">
-      <img 
-        :src="product.image" 
+    <div
+      class="flex-1 mb-3 rounded-lg overflow-hidden bg-white min-h-[140px] max-h-[160px] sm:min-h-[180px] sm:max-h-[180px] md:min-h-[200px] md:max-h-[200px] lg:min-h-[220px] lg:max-h-[220px]"
+    >
+      <img
+        :src="product.image"
         :alt="product.name"
-        class="w-full h-full object-contain transition-transform duration-300 hover:scale-105" 
+        class="w-full h-full object-contain transition-transform duration-300 scale-105"
       />
     </div>
 
     <!-- Product Details -->
-    <div class="mb-3 flex-shrink-0">
-      <div class="text-xs text-gray-500 mb-1 truncate">{{ product.category }}</div>
-      <div class="font-medium text-sm mb-2 text-gray-800 line-clamp-2 leading-tight min-h-[2.5rem]">
+    <div class="flex-shrink-0">
+      <div class="text-xs text-gray-500 mb-2 truncate">
+        {{ product.category }}
+      </div>
+      <div
+        class="font-medium text-sm text-gray-800 line-clamp-2 leading-tight mb-3"
+      >
         {{ product.name }}
       </div>
       <div class="flex items-center gap-2 flex-wrap">
-        <span class="font-bold text-sm sm:text-base text-gray-900">{{ product.price }} EGP</span>
+        <span class="font-bold text-sm sm:text-base text-gray-900"
+          >{{ product.price }} EGP</span
+        >
         <span
           v-if="product.oldPrice"
           class="text-gray-400 line-through text-xs sm:text-sm"
@@ -56,8 +63,7 @@
     <!-- Show More Button -->
     <div class="flex justify-center flex-shrink-0">
       <button
-        class="bg-primary text-white px-4 py-2 rounded-md hover:bg-blue-600 active:bg-blue-700 transition-colors w-full text-sm font-medium
-               min-h-[40px] touch-manipulation"
+        class="bg-primary text-white px-4 py-2 rounded-md hover:bg-blue-600 active:bg-blue-700 transition-colors w-full text-sm font-medium min-h-[40px] touch-manipulation"
         @click.stop="goToProduct"
       >
         Show More

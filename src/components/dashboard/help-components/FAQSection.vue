@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-white rounded-lg border border-gray-200 py-6 px-6">
+  <div class="bg-white rounded-lg border shadow-md border-gray-200 py-6 px-6">
     <h3 class="text-lg font-semibold text-gray-900 mb-2">Frequently Asked Questions</h3>
     <p class="text-gray-600 text-sm mb-6">Find answers to common questions about the admin system</p>
     

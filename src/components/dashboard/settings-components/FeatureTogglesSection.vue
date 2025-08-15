@@ -2,7 +2,7 @@
 <template>
   <div class="mx-auto">
     <!-- Enable Fit Room Alerts Section -->
-    <div class="px-4 py-4 bg-gray-50 rounded-lg">
+    <div class="px-4 py-4 bg-white rounded-lg">
       <div class="flex items-center justify-between">
         <div class="flex-1">
           <h3 class="text-lg font-medium text-gray-900">
@@ -17,7 +17,7 @@
     </div>
 
     <!-- Email Notifications Section -->
-    <div class="px-4 py-4 bg-gray-50 rounded-lg mt-3">
+    <div class="px-4 py-4 bg-white rounded-lg mt-3">
       <div class="flex items-center justify-between">
         <div class="flex-1">
           <h3 class="text-lg font-medium text-gray-900">Email Notifications</h3>

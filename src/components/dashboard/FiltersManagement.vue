@@ -30,11 +30,10 @@
             <option value="single">Single</option>
           </select>
 
-          <!-- سهم من الجنب -->
           <div
             class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"
           >
-            <ChevronDown :size="28" :stroke-width="3" />
+            <ChevronDown :size="17" :stroke-width="3" color="gray" />
           </div>
         </div>
       </div>
@@ -67,7 +66,7 @@
           <div class="flex gap-2">
             <div class="relative inline-block">
               <select
-                class="appearance-none px-3 py-2 bg-white borders rounded-lg focus:outline-none focus:border-blue-500 pr-10"
+                class="appearance-none px-2 py-1 bg-white borders rounded-lg focus:outline-none focus:border-blue-500 pr-5"
               >
                 <option value="multi">Multi</option>
                 <option value="single">Single</option>
@@ -76,12 +75,12 @@
               <div
                 class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"
               >
-                <ChevronDown :size="28" :stroke-width="3" />
+                <ChevronDown :size="17" :stroke-width="3" color="gray" />
               </div>
             </div>
-            <button class="text-white px-3 py-2 rounded-md borders">
+            <button class="text-white px-2 py-1 rounded-md borders">
               <Trash2
-                :size="20"
+                :size="17"
                 :stroke-width="3"
                 class="text-red-400 hover:text-red-600"
               />
@@ -92,10 +91,10 @@
           <input
             type="text"
             placeholder="Select Size"
-            class="w-full px-3 py-2 borders rounded-lg focus:outline-none focus:border-blue-500"
+            class="w-full px-2 py-1 borders rounded-lg focus:outline-none focus:border-blue-500"
           />
           <button
-            class="bg-primary text-white px-3 py-2 rounded-md ml-2 hover:bg-blue-600"
+            class="bg-primary text-white px-2 py-1 rounded-md ml-2 hover:bg-blue-600"
           >
             <Plus :size="25" :stroke-width="3" />
           </button>
@@ -122,22 +121,22 @@
           </div>
           <div class="flex gap-2">
             <div class="relative inline-block">
-              <select
-                class="appearance-none px-3 py-2 bg-white borders rounded-lg focus:outline-none focus:border-blue-500 pr-10"
+               <select
+                class="appearance-none px-2 py-1 bg-white borders rounded-lg focus:outline-none focus:border-blue-500 pr-5"
               >
                 <option value="single">Single</option>
                 <option value="multi">Multi</option>
               </select>
 
               <div
-                class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"
+                class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-1 text-gray-700"
               >
-                <ChevronDown :size="28" :stroke-width="3" />
+                <ChevronDown :size="17" :stroke-width="3" color="gray" />
               </div>
             </div>
-            <button class="text-white px-3 py-2 rounded-md borders">
+            <button class="text-white px-2 py-1 rounded-md borders">
               <Trash2
-                :size="20"
+                :size="17"
                 :stroke-width="3"
                 class="text-red-400 hover:text-red-600"
               />
@@ -148,10 +147,10 @@
           <input
             type="text"
             placeholder="Select type"
-            class="w-full px-3 py-2 borders rounded-lg focus:outline-none focus:border-blue-500"
+            class="w-full px-2 py-1 borders rounded-lg focus:outline-none focus:border-blue-500"
           />
           <button
-            class="bg-primary text-white px-3 py-2 rounded-md ml-2 hover:bg-blue-600"
+            class="bg-primary text-white px-2 py-1 rounded-md ml-2 hover:bg-blue-600"
           >
             <Plus :size="25" :stroke-width="3" />
           </button>
@@ -180,22 +179,22 @@
           </div>
           <div class="flex gap-2">
             <div class="relative inline-block">
-              <select
-                class="appearance-none px-3 py-2 bg-white borders rounded-lg focus:outline-none focus:border-blue-500 pr-10"
+             <select
+                class="appearance-none px-2 py-1 bg-white borders rounded-lg focus:outline-none focus:border-blue-500 pr-5"
               >
                 <option value="single">Single</option>
                 <option value="multi">Multi</option>
               </select>
 
               <div
-                class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"
+                class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-1 text-gray-700"
               >
-                <ChevronDown :size="28" :stroke-width="3" />
+                <ChevronDown :size="17" :stroke-width="3" color="gray" />
               </div>
             </div>
-            <button class="text-white px-3 py-2 rounded-md borders">
+            <button class="text-white px-2 py-1 rounded-md borders">
               <Trash2
-                :size="20"
+                :size="17"
                 :stroke-width="3"
                 class="text-red-400 hover:text-red-600"
               />
@@ -206,10 +205,10 @@
           <input
             type="text"
             placeholder="Select Color"
-            class="w-full px-3 py-2 borders rounded-lg focus:outline-none focus:border-blue-500"
+            class="w-full px-2 py-1 borders rounded-lg focus:outline-none focus:border-blue-500"
           />
           <button
-            class="bg-primary text-white px-3 py-2 rounded-md ml-2 hover:bg-blue-600"
+            class="bg-primary text-white px-2 py-1 rounded-md ml-2 hover:bg-blue-600"
           >
             <Plus :size="25" :stroke-width="3" />
           </button>
@@ -239,22 +238,22 @@
           </div>
           <div class="flex gap-2">
             <div class="relative inline-block">
-              <select
-                class="appearance-none px-3 py-2 bg-white borders rounded-lg focus:outline-none focus:border-blue-500 pr-10"
+          <select
+                class="appearance-none px-2 py-1 bg-white borders rounded-lg focus:outline-none focus:border-blue-500 pr-5"
               >
-                <option value="multi">Multi</option>
                 <option value="single">Single</option>
+                <option value="multi">Multi</option>
               </select>
 
               <div
-                class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"
+                class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-1 text-gray-700"
               >
-                <ChevronDown :size="28" :stroke-width="3" />
+                <ChevronDown :size="17" :stroke-width="3" color="gray" />
               </div>
             </div>
-            <button class="text-white px-3 py-2 rounded-md borders">
+            <button class="text-white px-2 py-1 rounded-md borders">
               <Trash2
-                :size="20"
+                :size="17"
                 :stroke-width="3"
                 class="text-red-400 hover:text-red-600"
               />
@@ -265,10 +264,10 @@
           <input
             type="text"
             placeholder="Select style"
-            class="w-full px-3 py-2 borders rounded-lg focus:outline-none focus:border-blue-500"
+            class="w-full px-2 py-1 borders rounded-lg focus:outline-none focus:border-blue-500"
           />
           <button
-            class="bg-primary text-white px-3 py-2 rounded-md ml-2 hover:bg-blue-600"
+            class="bg-primary text-white px-2 py-1 rounded-md ml-2 hover:bg-blue-600"
           >
             <Plus :size="25" :stroke-width="3" />
           </button>
@@ -296,7 +295,7 @@
           <div class="flex gap-2">
             <div class="relative inline-block">
               <select
-                class="appearance-none px-3 py-2 bg-white borders rounded-lg focus:outline-none focus:border-blue-500 pr-10"
+                class="appearance-none px-2 py-1 bg-white borders rounded-lg focus:outline-none focus:border-blue-500 pr-6"
               >
                 <option value="single">Single</option>
                 <option value="multi">Multi</option>
@@ -305,12 +304,12 @@
               <div
                 class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"
               >
-                <ChevronDown :size="28" :stroke-width="3" />
+                <ChevronDown :size="17" :stroke-width="3" color="gray" />
               </div>
             </div>
-            <button class="text-white px-3 py-2 rounded-md borders">
+            <button class="text-white px-2 py-1 rounded-md borders">
               <Trash2
-                :size="20"
+                :size="17"
                 :stroke-width="3"
                 class="text-red-400 hover:text-red-600"
               />
@@ -321,10 +320,10 @@
           <input
             type="text"
             placeholder="Select price"
-            class="w-full px-3 py-2 borders rounded-lg focus:outline-none focus:border-blue-500"
+            class="w-full px-2zz py-1 px-2 borders rounded-lg focus:outline-none focus:border-blue-500"
           />
           <button
-            class="bg-primary text-white px-3 py-2 rounded-md ml-2 hover:bg-blue-600"
+            class="bg-primary text-white px-2 py-1 rounded-md ml-2 hover:bg-blue-600"
           >
             <Plus :size="25" :stroke-width="3" />
           </button>
@@ -352,7 +351,7 @@
           <div class="flex gap-2">
             <div class="relative inline-block">
               <select
-                class="appearance-none px-3 py-2 bg-white borders rounded-lg focus:outline-none focus:border-blue-500 pr-10"
+                class="appearance-none px-2 py-1 bg-white borders rounded-lg focus:outline-none focus:border-blue-500 pr-10"
               >
                 <option value="single">Single</option>
                 <option value="multi">Multi</option>
@@ -361,12 +360,12 @@
               <div
                 class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"
               >
-                <ChevronDown :size="28" :stroke-width="3" />
+                <ChevronDown :size="17" :stroke-width="3" color="gray" />
               </div>
             </div>
-            <button class="text-white px-3 py-2 rounded-md borders">
+            <button class="text-white px-2 py-1 rounded-md borders">
               <Trash2
-                :size="20"
+                :size="17"
                 :stroke-width="3"
                 class="text-red-400 hover:text-red-600"
               />
@@ -377,10 +376,10 @@
           <input
             type="text"
             placeholder="Select promotion"
-            class="w-full px-3 py-2 borders rounded-lg focus:outline-none focus:border-blue-500"
+            class="w-full px-2 py-1 borders rounded-lg focus:outline-none focus:border-blue-500"
           />
           <button
-            class="bg-primary text-white px-3 py-2 rounded-md ml-2 hover:bg-blue-600"
+            class="bg-primary text-white px-2 py-1 rounded-md ml-2 hover:bg-blue-600"
           >
             <Plus :size="25" :stroke-width="3" />
           </button>

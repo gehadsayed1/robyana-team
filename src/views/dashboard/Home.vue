@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-gray-100  px-6 ">
+  <div class="bg-gray-100 px-6">
     <!-- Dashboard Overview -->
     <div class="mb-4">
       <h2 class="text-3xl text-primary font-meduim mb-2">Dashboard Overview</h2>
@@ -108,7 +108,7 @@
     <!-- Top Category & Most Viewed Product -->
     <div class="grid grid-cols-2 gap-4 mb-4">
       <!-- Top Category -->
-      <div class="border-gray-200 rounded-md p-4">
+      <div class="border-gray-200 rounded-md ">
         <div class="flex items-center gap-2 mb-2">
           <Eye :size="28" :stroke-width="2" class="text-primary" />
           <h3 class="text-xl font-medium">Top Category</h3>
@@ -141,7 +141,7 @@
       </div>
 
       <!-- Most Viewed Product -->
-      <div class="border-gray-200 rounded-md p-4">
+      <div class="border-gray-200 rounded-md ">
         <div class="flex items-center gap-2 mb-2">
           <ChartColumnBig :size="28" :stroke-width="2" class="text-pink-600" />
           <h3 class="text-xl font-medium">Most Viewed Product</h3>

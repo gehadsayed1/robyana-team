@@ -17,9 +17,15 @@
       <div class="flex flex-col md:px-12 lg:flex-row gap-6 lg:gap-8">
         <!-- Product Image -->
         <div class="w-full lg:w-2/5">
-          <div class="md:hidden flex justify-between items-start py-3 mb-4">
+          <div class="md:hidden flex justify-between items-start py-3 mb-3">
             <h2 class="text-lg font-bold text-gray-700">Women</h2>
-            <p class="text-sm text-gray-400">New Collection</p>
+           
+                        <p
+              class="text-md text-gray-400 bg-gray-200 rounded-full px-4 py-1 "
+            >
+              New Collection
+            </p>
+         
           </div>
           <img
             :src="mainImage"
@@ -27,52 +33,60 @@
             class="w-full h-[300px] lg:h-[500px] rounded-xl shadow-md object-cover"
           />
 
-          <!-- Thumbnails Swiper -->
-          <div class="mt-4 lg:mt-5">
-            <swiper
-              class="thumbnails-swiper py-6 lg:py-10"
-              :modules="[Navigation]"
-              :slides-per-view="3"
-              :space-between="8"
-              :breakpoints="{
-                320: {
-                  slidesPerView: 3,
-                  spaceBetween: 8
-                },
-                768: {
-                  slidesPerView: 3,
-                  spaceBetween: 10
-                }
-              }"
-              navigation
+          <div class=" lg:mt-5 relative">
+            <button
+              @click="thumbsSlider.prev()"
+              class="absolute -left-4 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-white shadow flex items-center justify-center text-gray-700 hover:scale-110 transition"
             >
-              <swiper-slide
+              ‹
+            </button>
+
+            <!-- keen-slider -->
+            <div ref="thumbsRef" class="keen-slider">
+              <div
                 v-for="(img, index) in imgs"
                 :key="index"
-                class="flex justify-center"
+                class="keen-slider__slide flex justify-center"
               >
                 <img
                   :src="img"
                   class="w-20 h-28 lg:w-32 lg:h-44 object-cover rounded-md cursor-pointer hover:scale-105 transition-transform"
                   @click="mainImage = img"
                 />
-              </swiper-slide>
-            </swiper>
+              </div>
+            </div>
+
+            <button
+              @click="thumbsSlider.next()"
+              class="absolute -right-1 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-white shadow flex items-center justify-center text-gray-700 hover:scale-110 transition"
+            >
+              ›
+            </button>
           </div>
         </div>
 
         <!-- Product Details -->
         <div class="w-full lg:w-3/5">
-          <div class="hidden md:block lg:flex items-center justify-between py-4">
+          <div
+            class="hidden md:block lg:flex items-center justify-between mb-4"
+          >
             <h2 class="text-xl font-bold text-gray-700">Women</h2>
-            <p class="text-md text-gray-400">New Collection</p>
+            <p
+              class="text-md text-gray-400 bg-gray-200 rounded-full px-4 py-1 "
+            >
+              New Collection
+            </p>
           </div>
 
           <div class="py-3 lg:py-5">
-            <h1 class="text-xl md:text-3xl tracking-widest font-semibold mb-3 lg:mb-4">
+            <h1
+              class="text-xl md:text-3xl tracking-widest font-semibold mb-3 lg:mb-4"
+            >
               {{ product.name }}
             </h1>
-            <p class="mb-4 lg:mb-6 text-gray-600 text-sm lg:text-base">{{ product.description }}</p>
+            <p class="mb-4 lg:mb-6 text-gray-600 text-sm lg:text-base">
+              {{ product.description }}
+            </p>
           </div>
 
           <!-- Size Options -->
@@ -93,7 +107,6 @@
             </button>
           </div>
 
-          <!-- Color Options -->
           <h3 class="text-base lg:text-lg font-semibold mb-3 lg:mb-5">Color</h3>
           <div class="flex gap-4 lg:gap-6 mb-4 lg:mb-6">
             <img
@@ -119,13 +132,15 @@
             class="text-xl lg:text-2xl font-bold py-2 lg:py-3 flex items-center gap-2 lg:gap-3 text-gray-800"
           >
             {{ product.price }}
-            <p class="text-sm lg:text-md text-gray-500 font-normal line-through">
+            <p
+              class="text-sm lg:text-md text-gray-500 font-normal line-through"
+            >
               1200 EGP
             </p>
           </div>
 
           <!-- Action Buttons - Mobile: Stacked, Desktop: Side by side -->
-          <div class="py-6 flex flex-col sm:flex-row justify-center gap-3">
+          <div class="py-6 flex flex-col sm:flex-row justify-srart gap-3">
             <button
               @click="$router.push({ name: 'wishlist' })"
               class="bg-blue-500 w-full sm:w-60 tracking-widest text-white px-4 lg:px-6 py-3 md:py-2 rounded hover:bg-blue-600 transition-colors text-sm lg:text-base"
@@ -142,35 +157,33 @@
       </div>
     </div>
 
-    <!-- Size Guide -->
-    <div class="mt-12 lg:mt-16 py-4 lg:py-5 bg-white">
-      <div class="px-4 lg:px-0">
-        <SizeGuide />
-      </div>
-    </div>
-
+    <SizeGuide />
     <!-- Recommendations -->
     <div class="md:mt-3 py-5 bg-gray-100">
+        <h3 class="text-center text-xl md:text-2xl mb-8 font-bold px-2">
+        Recommendation For You
+      </h3>
       <Recommend />
     </div>
   </main>
 </template>
 
 <script setup>
-import { ref } from "vue";
-import { Swiper, SwiperSlide } from "swiper/vue";
-import { Navigation } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/navigation";
+import { ref, onMounted, onBeforeUnmount } from "vue";
+import KeenSlider from "keen-slider";
+import "keen-slider/keen-slider.min.css";
+import Recommend from "../components/pages/Recommend.vue";
 
 import img1 from "../assets/skert1.jpg";
 import img2 from "../assets/skert2.jpg";
 import img4 from "../assets/skert3.jpg";
 import img3 from "../assets/skert4.jpg";
-
 import SizeGuide from "../components/pages/SizeGuide.vue";
-import Recommend from "../components/pages/Recommend.vue";
 
+const mainImage = ref(img1);
+
+const thumbsRef = ref(null);
+let thumbsSlider = null;
 const imgs = [img1, img2, img3, img4];
 
 const product = {
@@ -188,13 +201,28 @@ const product = {
   ],
 };
 
+onMounted(() => {
+  thumbsSlider = new KeenSlider(thumbsRef.value, {
+    slides: {
+      perView: 3.2,
+      spacing: 5,
+    },
+    breakpoints: {
+      "(min-width: 768px)": {
+        slides: { perView: 3, spacing: 10 },
+      },
+    },
+  });
+});
+
+onBeforeUnmount(() => {
+  if (thumbsSlider) thumbsSlider.destroy();
+});
 const selectedSize = ref(product.sizes[4]);
 const selectedColor = ref(product.colors[0].name);
-const mainImage = ref(product.image);
 </script>
 
 <style scoped>
-/* تخصيص الـ Swiper للصور المصغرة فقط */
 .thumbnails-swiper .swiper-button-next,
 .thumbnails-swiper .swiper-button-prev {
   color: #000;
@@ -210,14 +238,13 @@ const mainImage = ref(product.image);
   font-size: 14px;
 }
 
-
 @media (max-width: 640px) {
   .thumbnails-swiper .swiper-button-next,
   .thumbnails-swiper .swiper-button-prev {
     width: 25px;
     height: 25px;
   }
-  
+
   .thumbnails-swiper .swiper-button-next::after,
   .thumbnails-swiper .swiper-button-prev::after {
     font-size: 12px;

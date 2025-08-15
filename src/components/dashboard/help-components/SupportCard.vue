@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-gray-50 rounded-lg py-6 px-6 hover:shadow-md transition-shadow">
+  <div class="bg-white rounded-lg py-6 px-6 hover:shadow-md transition-shadow">
     <div class="flex items-center mb-3">
       <div :class="[bgColor, 'py-4 px-4 rounded-lg mr-4']">
         <Phone v-if="icon === 'phone'" :class="['w-6 h-6', iconColor]" />

@@ -5,11 +5,11 @@
     v-if="visible"
   >
     <div class="bg-white py-6 px-6 rounded-lg shadow-xl w-[400px]">
-      <!-- العنوان -->
+     
       <h2 class="text-xl  text-black">Assign Fit Room</h2>
       <p class="text-gray-600 mt-1 mb-4">Select a fitting room for this request:</p>
 
-      <!-- شبكة الغرف -->
+    
       <div class="grid grid-cols-3 gap-3 px-6 mb-6">
         <button
           v-for="room in rooms"
@@ -27,7 +27,7 @@
         </button>
       </div>
 
-      <!-- الأزرار -->
+    
       <div class="flex justify-end gap-3">
         <button
           @click="$emit('cancel')"

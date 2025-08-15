@@ -1,5 +1,5 @@
 <template>
-  <div class="py-6 px-6">
+  <div class=" px-6">
     <!-- Section Title -->
     <div>
       <div class="flex items-center justify-between mb-6">

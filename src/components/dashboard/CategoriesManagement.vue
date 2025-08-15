@@ -34,10 +34,10 @@
           Women
         </button>
         <div class="flex gap-3">
-          <Plus class="text-primary hover:text-blue-700 cursor-pointer" />
-          <SquarePen class="text-primary hover:text-blue-700 cursor-pointer" />
+          <Plus size="18" class="text-primary hover:text-blue-700 cursor-pointer" />
+          <SquarePen size="18" class="text-primary hover:text-blue-700 cursor-pointer" />
 
-          <Trash2 class="text-red-500 hover:text-red-700 cursor-pointer" />
+          <Trash2 size="18" class="text-red-500 hover:text-red-700 cursor-pointer" />
         </div>
       </div>
     </div>

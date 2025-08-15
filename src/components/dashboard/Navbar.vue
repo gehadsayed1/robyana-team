@@ -19,12 +19,12 @@ const route = useRoute();
         </div>
 
         <!-- Right side: Search bar and icons -->
-        <div class="flex items-center justify-between gap-10">
+        <div class="flex items-center justify-between gap-3">
           <!-- Search bar -->
           <div
             class="relative flex items-center rounded-full bg-gray-200 px-3 py-2"
           >
-            <!-- استخدام أيقونة البحث من Lucide -->
+           
             <search class="h-5 w-5 text-primary mr-2" />
             <input
               type="text"
@@ -33,15 +33,15 @@ const route = useRoute();
             />
           </div>
 
-          <router-link to="/settings" class="inline-block">
+          <router-link to="/settings" class="inline-block  rounded-full p-2 bg-gray-200 transition-colors">
             <Settings
               class="h-6 w-6 text-blue-500 cursor-pointer hover:text-blue-600 transition-colors"
             />
           </router-link>
 
           <!-- Profile/User icon -->
-         
-          <router-link to="/profile" class="inline-block">
+
+          <router-link to="/profile" class="inline-block bg-gray-200 rounded-full p-2 transition-colors">
             <User
               class="h-6 w-6 text-blue-500 cursor-pointer hover:text-blue-600 transition-colors"
             />

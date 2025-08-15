@@ -1,5 +1,5 @@
 <template>
-  <div class="w-74 h-fit bg-gray-50 md:py-10 px-10 shadow-r-lg">
+  <div class="w-74 h-fit bg-gray-50 md:py-10 py-5 px-10 shadow-r-lg">
     <h2 class="font-bold text-3xl pb-3 mb-3 border-b border-gray-400">
       Filter Options
     </h2>
@@ -66,7 +66,7 @@
           
           <!-- Min Handle -->
           <div 
-            class="absolute w-4 h-4 bg-blue-500 rounded-full border-2 border-white shadow-md cursor-pointer transform -translate-y-1 -translate-x-2 hover:scale-110 transition-transform"
+            class="absolute w-4 h-4 bg-blue-500 rounded-full border-2 border-white shadow-md cursor-pointer transform -translate-y-3 -translate-x-2 hover:scale-110 transition-transform"
             :style="{ left: `${((priceRange[0] - 100) / (1000 - 100)) * 100}%` }"
             @mousedown="startDragging(0)"
             @touchstart="startDragging(0)"
@@ -74,7 +74,7 @@
           
           <!-- Max Handle -->
           <div 
-            class="absolute w-4 h-4 bg-blue-500 rounded-full border-2 border-white shadow-md cursor-pointer transform -translate-y-1 -translate-x-2 hover:scale-110 transition-transform"
+            class="absolute w-4 h-4 bg-blue-500 rounded-full border-2 border-white shadow-md cursor-pointer transform -translate-y-3 -translate-x-2 hover:scale-110 transition-transform"
             :style="{ left: `${((priceRange[1] - 100) / (1000 - 100)) * 100}%` }"
             @mousedown="startDragging(1)"
             @touchstart="startDragging(1)"

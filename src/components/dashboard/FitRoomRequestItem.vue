@@ -3,17 +3,17 @@
     <div class="flex gap-4">
      <div
      v-if="isCompletedTab"
-  @click="toggleCheck"
-  class="cursor-pointer mt-2"
->
-  <component
-    :is="isChecked ? CheckSquare : Square"
-    :class="[
-      'w-6 h-6 transition-colors duration-200',
-      isChecked ? 'text-blue-600' : 'text-gray-400'
-    ]"
-  />
-</div>
+     class="cursor-pointer mt-2"
+   >
+      <input
+        type="checkbox"
+        v-model="isChecked"
+        @click="toggleCheck"
+        class="w-4 h-4 rounded focus:ring-0 checked:bg-primary checked:border-primary"
+      />
+    </div>
+
+  
 
       <img :src="request.image" alt="Product" class="w-16 h-16 object-cover rounded" />
       
@@ -24,9 +24,7 @@
           <div class="flex items-center gap-1">
             <Shirt class="w-4 h-4" /> Size {{ request.size }}
           </div>
-          <div class="flex items-center gap-1">
-            <DoorOpen class="w-4 h-4" /> Room {{ request.room }}
-          </div>
+       
           <div class="flex items-center gap-1">
             <Circle class="w-3 h-3 text-red-500 fill-red-500" /> Color
           </div>
@@ -42,9 +40,9 @@
       <button
         v-if="!isCompletedTab"
         @click="opens = true"
-        class="bg-blue-500 cursor-pointer text-white px-4 py-2 rounded hover:bg-blue-600"
+        class="bg-primary cursor-pointer text-white px-10 py-1.5 rounded hover:bg-blue-500"
       >
-        Assign Room
+        Complete
       </button>
 
       <span

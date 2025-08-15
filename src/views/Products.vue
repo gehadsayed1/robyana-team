@@ -27,9 +27,9 @@
           <!-- Mobile Filter Button -->
           <button
             @click="toggleMobileFilter"
-            class="ml-auto lg:hidden"
+            class="ml-auto lg:hidden  h-11 flex justify-center items-center w-11 bg-white p-2 rounded-lg shadow-md  "
           >
-            <Funnel class="w-6 h-6 text-gray-700" />
+            <Funnel class="w-6 h-6 text-gray-600" />
           </button>
         </div>
 
@@ -45,21 +45,16 @@
           class="fixed right-0 top-0 h-full w-80 bg-white shadow-2xl z-50 transform transition-transform duration-300 ease-in-out lg:hidden"
           :class="showMobileFilter ? 'translate-x-0' : 'translate-x-full'"
         >
-          <!-- Mobile Filter Header -->
-          <div class="flex items-center justify-between p-4 border-b border-gray-200">
-            <h3 class="text-lg font-semibold text-gray-800">Filters</h3>
-            <button
-              @click="closeMobileFilter"
-              class="p-2 hover:bg-gray-100 rounded-full transition-colors"
-            >
-              <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-              </svg>
-            </button>
-          </div>
-          
+   
+
           <!-- Mobile Filter Content -->
-          <div class="p-4 overflow-y-auto h-full">
+          <div class=" overflow-y-auto h-full">
+                   <button
+            @click="closeMobileFilter"
+            class=" hover:bg-gray-100 rounded-full transition-colors"
+          >
+            <X class="w-6 h-6 text-gray-600 mt-2 ms-2" />
+          </button>
             <FilterSidebar @update-filters="updateFilters" />
           </div>
         </div>
@@ -155,7 +150,7 @@ import ProductCard from "@/components/pages/ProductCard.vue";
 import Pagination from "@/components/global/Pagination.vue";
 import skirt from "@/assets/skert1.jpg";
 import { ref } from "vue";
-import { Funnel } from "lucide-vue-next";
+import { Funnel, X } from "lucide-vue-next";
 
 // Pagination state
 const currentPage = ref(1);
