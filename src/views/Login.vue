@@ -4,17 +4,51 @@
       class="bg-white shadow-lg rounded-lg w-full max-w-6xl flex flex-col md:flex-row overflow-hidden animate-fadeIn"
     >
       <!-- Left Section -->
-      <div class="md:w-1/2 bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center p-10 text-white">
-        <div class="text-center space-y-3">
-          <h2 class="text-3xl md:text-4xl font-bold">Welcome to Robyana</h2>
-          <p class="text-sm opacity-90">Discover the latest trends at your fingertips.</p>
-          <p class="text-sm opacity-90">Enjoy shopping with style and ease.</p>
+      <div class="w-1/2">
+        <div
+          class="relative w-full h-screen bg-gradient-to-tr from-blue-500 to-blue-400 overflow-hidden flex items-center justify-center"
+        >
+          <!-- النجوم -->
+          <svg
+            class="absolute inset-0 w-full h-full opacity-20 pointer-events-none"
+          >
+            <defs>
+              <pattern
+                id="stars"
+                x="0"
+                y="0"
+                width="200"
+                height="200"
+                patternUnits="userSpaceOnUse"
+              >
+                <path
+                  d="M100 30 L110 70 L150 80 L120 110 L130 160 L100 130 L70 160 L80 110 L50 80 L90 70 Z"
+                  fill="none"
+                  stroke="white"
+                  stroke-width="1.5"
+                />
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#stars)" />
+          </svg>
+
+          <!-- النص فوق النجوم -->
+          <div
+            class="absolute text-center bottom-20 left-1/3 transform -translate-x-1/4"
+          >
+            <h1 class="text-white text-4xl font-">Welcome to Remake</h1>
+            <p class="text-white mt-2 text-sm">
+              Your journey to a better wardrobe starts here
+              
+              .
+            </p>
+          </div>
         </div>
       </div>
 
       <!-- Right Section -->
-      <div class="md:w-1/2 py-10 px-6 flex flex-col justify-center items-center">
-        <h3 class="text-2xl font-bold mb-1">Get Started</h3>
+      <div class="w-1/2 py-10 px-6 flex flex-col justify-center items-center">
+        <h3 class="text-4xl font-medium mb-2">Get Started</h3>
         <p class="text-sm text-gray-500 mb-6">
           Don't have an account yet?
           <a href="#" class="text-blue-600 hover:underline">Sign up here</a>
@@ -39,33 +73,37 @@
 
         <!-- Login Button -->
         <button
-          @click="login"
-          class="w-full max-w-sm bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-md mb-5 transition duration-200"
+          @click="router.push('/stepper')"
+          class="w-full max-w-sm bg-primary hover:bg-primary/90 text-white py-2 rounded-md mb-5 transition duration-200"
         >
           Login
         </button>
 
         <!-- Divider -->
-        <div class="flex items-center my-4 w-full max-w-sm">
-          <hr class="flex-grow border-gray-300" />
-          <span class="mx-2 text-sm text-gray-500">or</span>
-          <hr class="flex-grow border-gray-300" />
+        <div class="flex items-center my-4 w-full ">
+          <hr class="flex-grow border-gray-500" />
+          <span class="mx-2 font-bold text-lg text-gray-500">or</span>
+          <hr class="flex-grow border-gray-500" />
         </div>
 
         <!-- Guest Mode -->
-        <p class="text-xs text-gray-500 mb-2">
+        <p class="text-xs max-w-full text-gray-500 mb-3">
           Want to try without signing up? Just tell us a bit about your size...
+          Want to try without signing up? Just tell us a bit about your size...
+          Want to try without signing up? Just te
         </p>
         <button
           @click="guestMode"
-          class="w-full max-w-sm bg-gray-200 hover:bg-gray-300 text-black py-2 rounded-md mb-4 transition duration-200"
+          class="w-full max-w-sm bg-primary hover:bg-primary/90 text-white py-2 rounded-md mb-4 transition duration-200"
         >
           Guest Mode
         </button>
 
         <!-- Explore Freely -->
-        <p class="text-xs text-gray-500 mb-2">
-          Just looking around? You're welcome to explore all our products.
+        <p class="text-xs max-w-full text-gray-500 mb-3">
+          Want to try without signing up? Just tell us a bit about your size...
+          Want to try without signing up? Just tell us a bit about your size...
+          Want to try without signing up? Just 
         </p>
         <button
           @click="explore"
@@ -79,20 +117,22 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref } from "vue";
+import { useRouter } from "vue-router";
 
-const selectedCode = ref('+20')
-const phone = ref('')
+const selectedCode = ref("+20");
+const phone = ref("");
+const router = useRouter();
 
 const login = () => {
-  console.log('Logging in:', selectedCode.value, phone.value)
-}
+  console.log("Logging in:", selectedCode.value, phone.value);
+};
 const guestMode = () => {
-  console.log('Guest mode activated')
-}
+  console.log("Guest mode activated");
+};
 const explore = () => {
-  console.log('Explore freely mode activated')
-}
+  console.log("Explore freely mode activated");
+};
 </script>
 
 <style scoped>

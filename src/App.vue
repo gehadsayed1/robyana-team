@@ -1,10 +1,12 @@
 <template>
   <div class="min-h-screen flex flex-col">
     <!-- Navbar -->
-    <Navbar v-if="!route.meta.hideHeaderFooter" />
+    <div style="margin-bottom: 64px;" v-if="!route.meta.hideHeaderFooter">
+      <Navbar />
+    </div>
 
     <!-- Main content -->
-    <main class="flex-1 bg-gray-100" style="margin-top: 64px;">
+    <main class="flex-1 bg-gray-100">
       <router-view />
     </main>
 

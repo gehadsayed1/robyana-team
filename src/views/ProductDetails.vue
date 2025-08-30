@@ -42,7 +42,7 @@
             </button>
 
             <!-- keen-slider -->
-            <div ref="thumbsRef" class="keen-slider">
+            <div ref="thumbsRef" class="keen-slider mt-3 md:mt-0">
               <div
                 v-for="(img, index) in imgs"
                 :key="index"

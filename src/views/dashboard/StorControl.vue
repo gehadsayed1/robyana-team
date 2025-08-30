@@ -1,21 +1,20 @@
 <script setup>
-import { ref } from "vue";
-
-// استيراد المكونات
+import { ref, markRaw } from "vue";
 import CategoriesManagement from "@/components/dashboard/CategoriesManagement.vue";
 import FiltersManagement from "@/components/dashboard/FiltersManagement.vue";
 import StoreBanners from "@/components/dashboard/StoreBanners.vue";
 import BrandSettings from "@/components/dashboard/BrandSettings.vue";
 
 const tabs = [
-  { name: "Categories", component: CategoriesManagement },
-  { name: "Filters", component: FiltersManagement },
-  { name: "Banner", component: StoreBanners },
-  { name: "Branding", component: BrandSettings },
+  { name: "Categories", component: markRaw(CategoriesManagement) },
+  { name: "Filters", component: markRaw(FiltersManagement) },
+  { name: "Banner", component: markRaw(StoreBanners) },
+  { name: "Branding", component: markRaw(BrandSettings) },
 ];
 
 const currentTab = ref(tabs[0]);
 </script>
+
 
 <template>
   <div class="px-8">
@@ -24,7 +23,7 @@ const currentTab = ref(tabs[0]);
       Manage your store categories, filters, and branding settings
     </p>
 
-    <!-- التبويبات -->
+   
     <div
       class="flex items-center justify-center text-xl gap-6 bg-gray-50 px-10 py-4 mt-4 rounded-lg shadow-md"
     >

@@ -17,7 +17,14 @@ const routes = [
     name: "login",
     component: () => import("@/views/Login.vue"),
     meta: { hideHeaderFooter: true },
+  },  {
+    path: "/stepper",
+    name: "stepper",
+    component: () => import("@/views/StepperForm.vue"),
+    meta: { hideHeaderFooter: true },
   },
+
+
   {
     path: "/category",
     name: "category",

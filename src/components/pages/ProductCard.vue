@@ -61,7 +61,7 @@
     </div>
 
     <!-- Show More Button -->
-    <div class="flex justify-center flex-shrink-0">
+    <div class="flex mt-3 md:mt-0 justify-center flex-shrink-0">
       <button
         class="bg-primary text-white px-4 py-2 rounded-md hover:bg-blue-600 active:bg-blue-700 transition-colors w-full text-sm font-medium min-h-[40px] touch-manipulation"
         @click.stop="goToProduct"

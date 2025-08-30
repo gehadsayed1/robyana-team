@@ -66,22 +66,22 @@
                   </div>
 
                   <!-- Dropdown -->
-               <!-- Dropdown -->
-<div
-  v-if="item.showSizes"
-  class="absolute z-20 bg-white border border-gray-300 mt-1 top-3 left-30 w-15 rounded-md shadow-lg overflow-hidden"
->
-  <ul class="py-1">
-    <li
-      v-for="size in sizes"
-      :key="size"
-      @click="selectSize(index, size)"
-      class="px-2 py-2 text-gray-700 hover:bg-blue-100 hover:text-blue-800 cursor-pointer text-sm transition-colors text-center"
-    >
-      {{ size }}
-    </li>
-  </ul>
-</div>
+                  <!-- Dropdown -->
+                  <div
+                    v-if="item.showSizes"
+                    class="absolute z-20 bg-white border border-gray-300 mt-1 top-3 left-30 w-15 rounded-md shadow-lg overflow-hidden"
+                  >
+                    <ul class="py-1">
+                      <li
+                        v-for="size in sizes"
+                        :key="size"
+                        @click="selectSize(index, size)"
+                        class="px-2 py-2 text-gray-700 hover:bg-blue-100 hover:text-blue-800 cursor-pointer text-sm transition-colors text-center"
+                      >
+                        {{ size }}
+                      </li>
+                    </ul>
+                  </div>
                 </div>
 
                 <p class="text-gray-600">{{ item.price }} EGP</p>

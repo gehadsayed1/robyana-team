@@ -10,69 +10,79 @@
           @click="goToSlideLink(slide)"
         >
           <img
-            :src="slide.image"
+            :src="BASE_URL + slide.url"
             :alt="slide.title"
             class="w-full h-full object-cover rounded-lg"
           />
+         
         </div>
       </div>
 
-   
       <div class="swiper-pagination"></div>
     </div>
   </div>
 </template>
 
 <script setup>
-import { onMounted, onBeforeUnmount } from "vue";
+import { ref, watch, onBeforeUnmount, onMounted } from "vue";
 import { useRouter } from "vue-router";
 import Swiper from "swiper";
 import { Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
+import { useBannersStore } from "../../../stores/Banners";
+import { BASE_URL } from "../../../api/Api";
 
-// Props
-const props = defineProps({
-  slides: {
-    type: Array,
-    required: true,
-  },
-});
-
-// Router
 const router = useRouter();
+const bannersStore = useBannersStore();
+const slides = ref([]);
 
 // Navigation on click
 const goToSlideLink = (slide) => {
   router.push({ name: "categories" });
 };
 
-// Swiper Instance
+// Swiper instance
 let swiperInstance = null;
 
 onMounted(() => {
-  swiperInstance = new Swiper(".swiper-container", {
-    modules: [Pagination, Autoplay],
-    loop: true,
-    slidesPerView: 1,
-    spaceBetween: 0,
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-      dynamicBullets: false,
-    },
-    autoplay: {
-      delay: 3000,
-      disableOnInteraction: false,
-    },
-    grabCursor: true,
-  });
+  bannersStore.fetchBanners();
 });
 
+// Watch for banners changes
+watch(
+  () => bannersStore.banners,
+  (newBanners) => {
+    slides.value = newBanners;
+
+    // Destroy previous swiper if exists
+    if (swiperInstance) {
+      swiperInstance.destroy(true, true);
+    }
+
+    if(slides.value.length === 0) return;
+
+    swiperInstance = new Swiper(".swiper-container", {
+      modules: [Pagination, Autoplay],
+      loop: slides.value.length > 1,
+      slidesPerView: slides.value.length >= 4 ? 1: slides.value.length,
+      spaceBetween: 0,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+      },
+      grabCursor: true,
+    });
+  },
+  { immediate: true }
+);
+
 onBeforeUnmount(() => {
-  if (swiperInstance) {
-    swiperInstance.destroy(true, true);
-  }
+  if (swiperInstance) swiperInstance.destroy(true, true);
 });
 </script>
 
@@ -103,7 +113,6 @@ onBeforeUnmount(() => {
   width: 100%;
   text-align: center;
   padding: 16px 0;
-
   border-radius: 0 0 0.5rem 0.5rem;
 }
 
@@ -117,10 +126,8 @@ onBeforeUnmount(() => {
   transition: all 0.3s ease;
 }
 
-
 .swiper-pagination-bullet-active {
   background-color: var(--color-primary);
-
   box-shadow: 0 0 8px rgba(59, 130, 246, 0.4);
 }
 
@@ -131,14 +138,12 @@ onBeforeUnmount(() => {
   border-radius: 0.5rem;
 }
 
-
 @media (max-width: 640px) {
   .swiper-slide img {
     object-fit: contain;
     background-color: #000;
   }
 }
-
 
 /* Responsive Adjustments */
 @media (max-width: 640px) {
