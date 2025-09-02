@@ -3,19 +3,29 @@
     <!-- Swiper Container -->
     <div class="swiper-container bg-gray-100 relative overflow-hidden">
       <div class="swiper-wrapper">
-        <div
-          v-for="(slide, index) in slides"
-          :key="index"
-          class="swiper-slide cursor-pointer"
-          @click="goToSlideLink(slide)"
-        >
-          <img
-            :src="BASE_URL + slide.url"
-            :alt="slide.title"
-            class="w-full h-full object-cover rounded-lg"
-          />
-         
-        </div>
+    <div
+  v-for="(slide, index) in slides"
+  :key="index"
+  class="swiper-slide cursor-pointer"
+  @click="goToSlideLink(slide)"
+>
+  
+  <img
+    v-if="slide && slide.imageUrl"
+    :src="BASE_URL + slide.imageUrl"
+    :alt="slide.title"
+    class="w-full h-full object-cover rounded-lg"
+  />
+
+
+  <img
+    v-else
+    :src="imgdefault"
+    alt="No Banner Available"
+    class="w-full h-full object-cover rounded-lg"
+  />
+</div>
+
       </div>
 
       <div class="swiper-pagination"></div>
@@ -30,8 +40,10 @@ import Swiper from "swiper";
 import { Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
-import { useBannersStore } from "../../../stores/Banners";
-import { BASE_URL } from "../../../api/Api";
+import { useBannersStore } from "@/stores/Banners";
+import { BASE_URL } from "@/api/Api";
+import imgdefault from "@/assets/default-banner.jpg";
+
 
 const router = useRouter();
 const bannersStore = useBannersStore();
@@ -46,6 +58,8 @@ const goToSlideLink = (slide) => {
 let swiperInstance = null;
 
 onMounted(() => {
+  console.log('mounted home');
+
   bannersStore.fetchBanners();
 });
 

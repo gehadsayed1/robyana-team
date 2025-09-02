@@ -2,8 +2,10 @@
 import { ref, markRaw } from "vue";
 import CategoriesManagement from "@/components/dashboard/CategoriesManagement.vue";
 import FiltersManagement from "@/components/dashboard/FiltersManagement.vue";
-import StoreBanners from "@/components/dashboard/StoreBanners.vue";
+
+
 import BrandSettings from "@/components/dashboard/BrandSettings.vue";
+import StoreBanners from "../../components/store-banner/StoreBanners.vue";
 
 const tabs = [
   { name: "Categories", component: markRaw(CategoriesManagement) },

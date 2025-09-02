@@ -2,29 +2,16 @@
 import { CloudUpload } from "lucide-vue-next";
 import { ref } from "vue";
 import { useBannersStore } from "@/stores/Banners";
-import img from "@/assets/img1.png";
+import img from "@/assets/default-banner.jpg";
+import BannersAdded from "./BannersAdded.vue";
 
 // refs
 const fileInput = ref(null);
 const bannerName = ref("");
 const selectedFiles = ref([]);
+const showForm = ref(false); // ✅ نتحكم في إظهار الديف
 
 const bannersStore = useBannersStore();
-
-const banners = ref([
-  {
-    image: img,
-    name: "Summer Collection 2024",
-    description: "Everyday Denim",
-    isActive: true,
-  },
-  {
-    image: img,
-    name: "Summer Collection 2024",
-    description: "Everyday Denim",
-    isActive: false,
-  },
-]);
 
 const openFilePicker = () => {
   fileInput.value.click();
@@ -47,19 +34,26 @@ const saveBanner = async () => {
 
   if (bannerName.value.trim()) {
     formData.append("name", bannerName.value);
+    formData.append("displayOrder", 4);
   }
 
   selectedFiles.value.forEach((file) => {
-    formData.append("files", file);
+    formData.append("image", file);
   });
 
   try {
-    await bannersStore.addBanner(formData);
-    console.log("✅ Banner Added successfully!");
+    for (let pair of formData.entries()) {
+      console.log(pair[0], pair[1]);
+    }
 
+    await bannersStore.addBanner(formData);
+
+    // Reset values
     selectedFiles.value = [];
     bannerName.value = "";
     fileInput.value.value = "";
+
+    showForm.value = false;
   } catch (error) {
     console.error("❌ Upload failed:", error);
   }
@@ -73,14 +67,14 @@ const saveBanner = async () => {
       <h2 class="text-2xl font-medium">Store Banners</h2>
       <button
         class="bg-primary text-white w-40 text-center px-4 py-2 rounded-md hover:bg-blue-600"
-        @click="openFilePicker"
+        @click="showForm = !showForm"
       >
         + Add Banner
       </button>
     </div>
 
     <!-- Add New Banner -->
-    <div class="mb-4 bg-gray-50 px-4 py-4 rounded-md shadow-sm">
+    <div v-if="showForm" class="mb-4 bg-gray-50 px-4 py-4 rounded-md shadow-sm">
       <label for="bannerName" class="block text-sm font-medium mb-1"
         >Banner Name</label
       >
@@ -119,20 +113,10 @@ const saveBanner = async () => {
         </p>
       </div>
 
-      <!-- Preview selected files -->
-      <div v-if="selectedFiles.length" class="mt-4">
-        <h3 class="text-lg font-medium mb-2">Selected Images:</h3>
-        <ul class="list-disc list-inside text-sm text-gray-700">
-          <li v-for="(file, index) in selectedFiles" :key="index">
-            {{ file.name }} ({{ (file.size / 1024).toFixed(1) }} KB)
-          </li>
-        </ul>
-      </div>
-
-      <!-- زر الحفظ -->
       <div class="flex mt-3 justify-center items-center gap-4">
         <button
           class="border text-center w-40 text-gray-700 px-4 py-2 rounded-md hover:bg-gray-300"
+          @click="showForm = false"
         >
           Cancel
         </button>
@@ -152,51 +136,10 @@ const saveBanner = async () => {
         </button>
       </div>
     </div>
-    <div>
-      <div
-        v-for="(banner, index) in banners"
-        :key="index"
-        class="flex items-center border-1 py-2 px-2 border-gray-500 justify-between rounded-md p-4 mb-4"
-      >
-        <div class="flex items-center">
-          <img
-            :src="banner.image"
-            alt="Banner Image"
-            class="w-60 h-25 rounded-md mr-4"
-          />
-          <div>
-            <h3 class="text-sm font-medium">{{ banner.name }}</h3>
-            <p class="text-xs text-gray-500">{{ banner.description }}</p>
-          </div>
-        </div>
-        <div class="flex items-center space-x-2">
-          <span
-            :class="[
-              'px-2 py-1 rounded-full text-xs',
-              banner.isActive
-                ? 'bg-green-100 text-green-500'
-                : 'bg-red-100 text-red-500',
-            ]"
-          >
-            {{ banner.isActive ? "Active" : "Inactive" }}
-          </span>
-          <v-button class="text-white px-2 py-1 rounded-full">
-            <Trash2Icon :size="20" class="text-red-400 hover:text-red-600" />
-          </v-button>
-        </div>
-      </div>
-      <div class="flex mt-3 justify-end items-center gap-4">
-        <v-button
-          class="borders text-center w-40 text-gray-700 px-4 py-2 rounded-md hover:bg-gray-300"
-        >
-          Cancel
-        </v-button>
-        <v-button
-          class="bg-primary text-center w-40 text-white px-4 py-2 rounded-md mr-2 hover:bg-blue-600"
-        >
-          Save Changes
-        </v-button>
-      </div>
-    </div>
+
+  
+      <BannersAdded />
+
+
   </div>
 </template>

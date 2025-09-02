@@ -2,7 +2,7 @@
 import { defineStore } from 'pinia'
 import { ref, computed } from 'vue'
 
-import { ADD_BANNER } from '../api/Api'
+import {  BANNERS } from '../api/Api'
 import apiClient from '../api/axiosInstance'
 import notyf from '../components/global/notify'
 
@@ -18,11 +18,11 @@ export const useBannersStore = defineStore('banners', () => {
     error.value = null
     
     try {
-      const response = await apiClient.get(`${ADD_BANNER}/all`)
-      console.log(response.data.files);
+      const response = await apiClient.get(BANNERS)
+      console.log(response.data.data);
 
-      banners.value = response.data.files
-      return response.data
+      banners.value = response.data.data
+      return response.data.data
     } catch (err) {
       error.value = err.response?.data?.message || err.message
       console.error('Error fetching banners:', err)
@@ -39,10 +39,12 @@ export const useBannersStore = defineStore('banners', () => {
     error.value = null
     
     try {
-      const response = await apiClient.post(ADD_BANNER, bannerData)
+      const response = await apiClient.post(BANNERS, bannerData)
       const newBanner = response.data
       notyf.success('Banner added successfully!')
+      
       banners.value.push(newBanner)
+     
       return newBanner
     } catch (err) {
       error.value = err.response?.data?.message || err.message
@@ -53,35 +55,14 @@ export const useBannersStore = defineStore('banners', () => {
     }
   }
 
-  const updateBanner = async (bannerId, bannerData) => {
-    loading.value = true
-    error.value = null
-    
-    try {
-      const response = await apiClient.put(`/api/banners/${bannerId}`, bannerData)
-      const updatedBanner = response.data
-      const index = banners.value.findIndex(b => b.id === bannerId)
-      
-      if (index !== -1) {
-        banners.value[index] = updatedBanner
-      }
-      
-      return updatedBanner
-    } catch (err) {
-      error.value = err.response?.data?.message || err.message
-      console.error('Error updating banner:', err)
-      throw err
-    } finally {
-      loading.value = false
-    }
-  }
+
 
   const deleteBanner = async (bannerId) => {
     loading.value = true
     error.value = null
     
     try {
-      await apiClient.delete(`/api/banners/${bannerId}`)
+      await apiClient.delete(`${BANNERS}/${bannerId}`)
       banners.value = banners.value.filter(b => b.id !== bannerId)
       return true
     } catch (err) {
@@ -93,31 +74,9 @@ export const useBannersStore = defineStore('banners', () => {
     }
   }
 
-  const uploadBannerImage = async (file) => {
-    loading.value = true
-    error.value = null
-    
-    try {
-      const formData = new FormData()
-      formData.append('image', file)
-      
-      const response = await apiClient.post('/api/banners/upload', formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data'
-        }
-      })
-      
-      return response.data.imageUrl
-    } catch (err) {
-      error.value = err.response?.data?.message || err.message
-      console.error('Error uploading image:', err)
-      throw err
-    } finally {
-      loading.value = false
-    }
-  }
 
-  // Getters
+
+  
   const activeBanners = computed(() => {
     const now = new Date()
     return banners.value.filter(banner => {
@@ -140,9 +99,9 @@ export const useBannersStore = defineStore('banners', () => {
     // Actions
     fetchBanners,
     addBanner,
-    updateBanner,
+  
     deleteBanner,
-    uploadBannerImage,
+  
     
     // Getters
     activeBanners,
